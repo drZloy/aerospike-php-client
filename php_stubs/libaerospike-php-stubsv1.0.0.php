@@ -1,11 +1,11 @@
 <?php
 
-namespace Aerospike {
+namespace AerospikeV8 {
     /**
      * BatchUDF encapsulates a batch user defined function operation.
      */
     class BatchUdf {
-        public function __construct(\Aerospike\BatchUdfPolicy $policy, \Aerospike\Key $key, string $package_name, string $function_name, array $function_args) {}
+        public function __construct(\AerospikeV8V8\BatchUdfPolicy $policy, \AerospikeV8V8\Key $key, string $package_name, string $function_name, array $function_args) {}
     }
 
     /**
@@ -16,30 +16,30 @@ namespace Aerospike {
         /**
          * MapWriteFlagsDefault is the Default. Allow create or update.
          */
-        public static function Default(): \Aerospike\MapWriteFlags {}
+        public static function Default(): \AerospikeV8V8\MapWriteFlags {}
 
         /**
          * MapWriteFlagsCreateOnly means: If the key already exists, the item will be denied.
          * If the key does not exist, a new item will be created.
          */
-        public static function CreateOnly(): \Aerospike\MapWriteFlags {}
+        public static function CreateOnly(): \AerospikeV8V8\MapWriteFlags {}
 
         /**
          * MapWriteFlagsUpdateOnly means: If the key already exists, the item will be overwritten.
          * If the key does not exist, the item will be denied.
          */
-        public static function UpdateOnly(): \Aerospike\MapWriteFlags {}
+        public static function UpdateOnly(): \AerospikeV8V8\MapWriteFlags {}
 
         /**
          * MapWriteFlagsNoFail means: Do not raise error if a map item is denied due to write flag constraints.
          */
-        public static function NoFail(): \Aerospike\MapWriteFlags {}
+        public static function NoFail(): \AerospikeV8V8\MapWriteFlags {}
 
         /**
          * MapWriteFlagsNoFail means: Allow other valid map items to be committed if a map item is denied due to
          * write flag constraints.
          */
-        public static function Partial(): \Aerospike\MapWriteFlags {}
+        public static function Partial(): \AerospikeV8V8\MapWriteFlags {}
     }
 
     /**
@@ -56,7 +56,7 @@ namespace Aerospike {
          * Do not add the overall latency to the server's latency histogram.
          * Do not allow server timeouts.    
          */
-        public static function long(): \Aerospike\QueryDuration {}
+        public static function long(): \AerospikeV8V8\QueryDuration {}
 
         /**
          * Short specifies that the query is expected to return less than 100 records per node. The server optimizes for a small record set in
@@ -68,13 +68,13 @@ namespace Aerospike {
          * Add the overall latency to the server's latency histogram.
          * Allow server timeouts. The default server timeout for a short query is 1 second.
          */
-        public static function short(): \Aerospike\QueryDuration {}
+        public static function short(): \AerospikeV8V8\QueryDuration {}
 
         /**
          * LongRelaxAP will treat query as a LONG query, but relax read consistency for AP namespaces.
          * This value is treated exactly like LONG for server versions < 7.1.
          */
-        public static function longRelaxAP(): \Aerospike\QueryDuration {}
+        public static function longRelaxAP(): \AerospikeV8V8\QueryDuration {}
     }
 
     /** Instantiate a Client instance to access an Aerospike database cluster and perform database operations.
@@ -114,59 +114,59 @@ namespace Aerospike {
          * Write record bin(s). The policy specifies the transaction timeout, record expiration and
          * how the transaction is handled when the record already exists.
          */
-        public function put(\Aerospike\WritePolicy $policy, \Aerospike\Key $key, array $bins): mixed {}
+        public function put(\AerospikeV8V8\WritePolicy $policy, \AerospikeV8V8\Key $key, array $bins): mixed {}
 
         /**
          * Read record for the specified key. Depending on the bins value provided, all record bins,
          * only selected record bins or only the record headers will be returned. The policy can be
          * used to specify timeouts.
          */
-        public function get(\Aerospike\ReadPolicy $policy, \Aerospike\Key $key, ?array $bins): \Aerospike\Record {}
+        public function get(\AerospikeV8V8\ReadPolicy $policy, \AerospikeV8V8\Key $key, ?array $bins): \AerospikeV8V8\Record {}
 
         /**
          * Read record for the specified key. Depending on the bins value provided, all record bins,
          * only selected record bins or only the record headers will be returned. The policy can be
          * used to specify timeouts.
          */
-        public function getHeader(\Aerospike\ReadPolicy $policy, \Aerospike\Key $key): \Aerospike\Record {}
+        public function getHeader(\AerospikeV8V8\ReadPolicy $policy, \AerospikeV8V8\Key $key): \AerospikeV8V8\Record {}
 
         /**
          * Add integer bin values to existing record bin values. The policy specifies the transaction
          * timeout, record expiration and how the transaction is handled when the record already
          * exists. This call only works for integer values.
          */
-        public function add(\Aerospike\WritePolicy $policy, \Aerospike\Key $key, array $bins): mixed {}
+        public function add(\AerospikeV8V8\WritePolicy $policy, \AerospikeV8V8\Key $key, array $bins): mixed {}
 
         /**
          * Append bin string values to existing record bin values. The policy specifies the
          * transaction timeout, record expiration and how the transaction is handled when the record
          * already exists. This call only works for string values.
          */
-        public function append(\Aerospike\WritePolicy $policy, \Aerospike\Key $key, array $bins): mixed {}
+        public function append(\AerospikeV8V8\WritePolicy $policy, \AerospikeV8V8\Key $key, array $bins): mixed {}
 
         /**
          * Prepend bin string values to existing record bin values. The policy specifies the
          * transaction timeout, record expiration and how the transaction is handled when the record
          * already exists. This call only works for string values.
          */
-        public function prepend(\Aerospike\WritePolicy $policy, \Aerospike\Key $key, array $bins): mixed {}
+        public function prepend(\AerospikeV8V8\WritePolicy $policy, \AerospikeV8V8\Key $key, array $bins): mixed {}
 
         /**
          * Delete record for specified key. The policy specifies the transaction timeout.
          * The call returns `true` if the record existed on the server before deletion.
          */
-        public function delete(\Aerospike\WritePolicy $policy, \Aerospike\Key $key): bool {}
+        public function delete(\AerospikeV8V8\WritePolicy $policy, \AerospikeV8V8\Key $key): bool {}
 
         /**
          * Reset record's time to expiration using the policy's expiration. Fail if the record does
          * not exist.
          */
-        public function touch(\Aerospike\WritePolicy $policy, \Aerospike\Key $key): mixed {}
+        public function touch(\AerospikeV8V8\WritePolicy $policy, \AerospikeV8V8\Key $key): mixed {}
 
         /**
          * Determine if a record key exists. The policy can be used to specify timeouts.
          */
-        public function exists(\Aerospike\ReadPolicy $policy, \Aerospike\Key $key): bool {}
+        public function exists(\AerospikeV8V8\ReadPolicy $policy, \AerospikeV8V8\Key $key): bool {}
 
         /**
          * BatchExecute will read/write multiple records for specified batch keys in one batch call.
@@ -177,12 +177,12 @@ namespace Aerospike {
          *
          * Requires server version 6.0+
          */
-        public function batch(\Aerospike\BatchPolicy $policy, array $cmds): array {}
+        public function batch(\AerospikeV8V8\BatchPolicy $policy, array $cmds): array {}
 
         /**
          * Removes all records in the specified namespace/set efficiently.
          */
-        public function truncate(\Aerospike\InfoPolicy $policy, string $namespace, string $set_name, ?int $before_nanos): mixed {}
+        public function truncate(\AerospikeV8V8\InfoPolicy $policy, string $namespace, string $set_name, ?int $before_nanos): mixed {}
 
         /**
          * Read all records in the specified namespace and set and return a record iterator. The scan
@@ -191,14 +191,14 @@ namespace Aerospike {
          * nodes are scanned in parallel. If concurrent nodes is set to zero, the server nodes are
          * read in series.
          */
-        public function scan(\Aerospike\ScanPolicy $policy, mixed $partition_filter, string $namespace, string $set_name, ?array $bins): \Aerospike\Recordset {}
+        public function scan(\AerospikeV8V8\ScanPolicy $policy, mixed $partition_filter, string $namespace, string $set_name, ?array $bins): \AerospikeV8V8\Recordset {}
 
         /**
          * Execute a query on all server nodes and return a record iterator. The query executor puts
          * records on a queue in separate threads. The calling thread concurrently pops records off
          * the queue through the record iterator.
          */
-        public function query(\Aerospike\QueryPolicy $policy, mixed $partition_filter, \Aerospike\Statement $statement): \Aerospike\Recordset {}
+        public function query(\AerospikeV8V8\QueryPolicy $policy, mixed $partition_filter, \AerospikeV8V8\Statement $statement): \AerospikeV8V8\Recordset {}
 
         /**
          * CreateIndex creates a secondary index.
@@ -208,14 +208,14 @@ namespace Aerospike {
          * This method is only supported by Aerospike 3+ servers.
          * If the policy is nil, the default relevant policy will be used.
          */
-        public function createIndex(\Aerospike\WritePolicy $policy, string $namespace, string $set_name, string $bin_name, string $index_name, \Aerospike\IndexType $index_type, ?\Aerospike\IndexCollectionType $cit, ?array $ctx): mixed {}
+        public function createIndex(\AerospikeV8V8\WritePolicy $policy, string $namespace, string $set_name, string $bin_name, string $index_name, \AerospikeV8V8\IndexType $index_type, ?\AerospikeV8V8\IndexCollectionType $cit, ?array $ctx): mixed {}
 
         /**
          * DropIndex deletes a secondary index. It will block until index is dropped on all nodes.
          * This method is only supported by Aerospike 3+ servers.
          * If the policy is nil, the default relevant policy will be used.
          */
-        public function dropIndex(\Aerospike\WritePolicy $policy, string $namespace, string $set_name, string $index_name): mixed {}
+        public function dropIndex(\AerospikeV8V8\WritePolicy $policy, string $namespace, string $set_name, string $index_name): mixed {}
 
         /**
          * RegisterUDF registers a package containing user defined functions with server.
@@ -226,7 +226,7 @@ namespace Aerospike {
          * This method is only supported by Aerospike 3+ servers.
          * If the policy is nil, the default relevant policy will be used.
          */
-        public function registerUdf(\Aerospike\WritePolicy $policy, string $udf_body, string $package_name, mixed $language): mixed {}
+        public function registerUdf(\AerospikeV8V8\WritePolicy $policy, string $udf_body, string $package_name, mixed $language): mixed {}
 
         /**
          * DropUDF removes a package containing user defined functions in the server.
@@ -237,14 +237,14 @@ namespace Aerospike {
          * This method is only supported by Aerospike 3+ servers.
          * If the policy is nil, the default relevant policy will be used.
          */
-        public function dropUdf(\Aerospike\WritePolicy $policy, string $package_name): mixed {}
+        public function dropUdf(\AerospikeV8V8\WritePolicy $policy, string $package_name): mixed {}
 
         /**
          * ListUDF lists all packages containing user defined functions in the server.
          * This method is only supported by Aerospike 3+ servers.
          * If the policy is nil, the default relevant policy will be used.
          */
-        public function listUdf(\Aerospike\ReadPolicy $policy): array {}
+        public function listUdf(\AerospikeV8V8\ReadPolicy $policy): array {}
 
         /**
          * Execute executes a user defined function on server and return results.
@@ -256,77 +256,77 @@ namespace Aerospike {
          * This method is only supported by Aerospike 3+ servers.
          * If the policy is nil, the default relevant policy will be used.
          */
-        public function udfExecute(\Aerospike\WritePolicy $policy, \Aerospike\Key $key, string $package_name, string $function_name, array $args): mixed {}
+        public function udfExecute(\AerospikeV8V8\WritePolicy $policy, \AerospikeV8V8\Key $key, string $package_name, string $function_name, array $args): mixed {}
 
         /**
          * CreateUser creates a new user with password and roles. Clear-text password will be hashed using bcrypt
          * before sending to server.
          */
-        public function createUser(\Aerospike\AdminPolicy $policy, string $user, string $password, array $roles): mixed {}
+        public function createUser(\AerospikeV8V8\AdminPolicy $policy, string $user, string $password, array $roles): mixed {}
 
         /**
          * DropUser removes a user from the cluster.
          */
-        public function dropUser(\Aerospike\AdminPolicy $policy, string $user): mixed {}
+        public function dropUser(\AerospikeV8V8\AdminPolicy $policy, string $user): mixed {}
 
         /**
          * ChangePassword changes a user's password. Clear-text password will be hashed using bcrypt before sending to server.
          */
-        public function changePassword(\Aerospike\AdminPolicy $policy, string $user, string $password): mixed {}
+        public function changePassword(\AerospikeV8V8\AdminPolicy $policy, string $user, string $password): mixed {}
 
         /**
          * GrantRoles adds roles to user's list of roles.
          */
-        public function grantRoles(\Aerospike\AdminPolicy $policy, string $user, array $roles): mixed {}
+        public function grantRoles(\AerospikeV8V8\AdminPolicy $policy, string $user, array $roles): mixed {}
 
         /**
          * RevokeRoles removes roles from user's list of roles.
          */
-        public function revokeRoles(\Aerospike\AdminPolicy $policy, string $user, array $roles): mixed {}
+        public function revokeRoles(\AerospikeV8V8\AdminPolicy $policy, string $user, array $roles): mixed {}
 
         /**
          * QueryUser retrieves roles for a given user.
          */
-        public function queryUsers(\Aerospike\AdminPolicy $policy, ?string $user): array {}
+        public function queryUsers(\AerospikeV8V8\AdminPolicy $policy, ?string $user): array {}
 
         /**
          * QueryRole retrieves privileges for a given role.
          */
-        public function queryRoles(\Aerospike\AdminPolicy $policy, ?string $role_name): array {}
+        public function queryRoles(\AerospikeV8V8\AdminPolicy $policy, ?string $role_name): array {}
 
         /**
          * CreateRole creates a user-defined role.
          * Quotas require server security configuration "enable-quotas" to be set to true.
          * Pass 0 for quota values for no limit.
          */
-        public function createRole(\Aerospike\AdminPolicy $policy, string $role_name, array $privileges, array $allowlist, int $read_quota, int $write_quota): mixed {}
+        public function createRole(\AerospikeV8V8\AdminPolicy $policy, string $role_name, array $privileges, array $allowlist, int $read_quota, int $write_quota): mixed {}
 
         /**
          * DropRole removes a user-defined role.
          */
-        public function dropRole(\Aerospike\AdminPolicy $policy, string $role_name): mixed {}
+        public function dropRole(\AerospikeV8V8\AdminPolicy $policy, string $role_name): mixed {}
 
         /**
          * GrantPrivileges grant privileges to a user-defined role.
          */
-        public function grantPrivileges(\Aerospike\AdminPolicy $policy, string $role_name, array $privileges): mixed {}
+        public function grantPrivileges(\AerospikeV8V8\AdminPolicy $policy, string $role_name, array $privileges): mixed {}
 
         /**
          * RevokePrivileges revokes privileges from a user-defined role.
          */
-        public function revokePrivileges(\Aerospike\AdminPolicy $policy, string $role_name, array $privileges): mixed {}
+        public function revokePrivileges(\AerospikeV8V8\AdminPolicy $policy, string $role_name, array $privileges): mixed {}
 
         /**
          * SetAllowlist sets IP address whitelist for a role. If whitelist is nil or empty, it removes existing whitelist from role.
          */
-        public function setAllowlist(\Aerospike\AdminPolicy $policy, string $role_name, array $allowlist): mixed {}
+        public function setAllowlist(\AerospikeV8V8\AdminPolicy $policy, string $role_name, array $allowlist): mixed {}
 
         /**
          * SetQuotas sets maximum reads/writes per second limits for a role.  If a quota is zero, the limit is removed.
          * Quotas require server security configuration "enable-quotas" to be set to true.
          * Pass 0 for quota values for no limit.
          */
-        public function setQuotas(\Aerospike\AdminPolicy $policy, string $role_name, int $read_quota, int $write_quota): mixed {}
+        public function setQuotas(\AerospikeV8V8\AdminPolicy $policy, string $role_name, int $read_quota, int $write_quota): mixed {}
     }
 
     /**
@@ -337,12 +337,12 @@ namespace Aerospike {
          * CommitAll indicates the server should wait until successfully committing master and all
          * replicas.
          */
-        public static function CommitAll(): \Aerospike\CommitLevel {}
+        public static function CommitAll(): \AerospikeV8V8\CommitLevel {}
 
         /**
          * CommitMaster indicates the server should wait until successfully committing master only.
          */
-        public static function CommitMaster(): \Aerospike\CommitLevel {}
+        public static function CommitMaster(): \AerospikeV8V8\CommitLevel {}
     }
 
     /**
@@ -404,15 +404,15 @@ namespace Aerospike {
 
         public function __construct() {}
 
-        public function getRecordExistsAction(): \Aerospike\RecordExistsAction {}
+        public function getRecordExistsAction(): \AerospikeV8V8\RecordExistsAction {}
 
         public function setRecordExistsAction(mixed $record_exists_action) {}
 
-        public function getGenerationPolicy(): \Aerospike\GenerationPolicy {}
+        public function getGenerationPolicy(): \AerospikeV8V8\GenerationPolicy {}
 
         public function setGenerationPolicy(mixed $generation_policy) {}
 
-        public function getCommitLevel(): \Aerospike\CommitLevel {}
+        public function getCommitLevel(): \AerospikeV8V8\CommitLevel {}
 
         public function setCommitLevel(mixed $commit_level) {}
 
@@ -429,7 +429,7 @@ namespace Aerospike {
          * TTLDontUpdate (MaxUint32 - 1): Do not change ttl when record is written. Supported by Aerospike server versions >= 3.10.1
          * > 0: Actual expiration in seconds.
          */
-        public function getExpiration(): \Aerospike\Expiration {}
+        public function getExpiration(): \AerospikeV8V8\Expiration {}
 
         public function setExpiration(mixed $expiration) {}
 
@@ -490,15 +490,15 @@ namespace Aerospike {
 
         public function setExitFastOnExhaustedConnectionPool(bool $exit_fast_on_exhausted_connection_pool) {}
 
-        public function getReadModeAp(): \Aerospike\ReadModeAP {}
+        public function getReadModeAp(): \AerospikeV8V8\ReadModeAP {}
 
         public function setReadModeAp(mixed $read_mode_ap) {}
 
-        public function getReadModeSc(): \Aerospike\ReadModeSC {}
+        public function getReadModeSc(): \AerospikeV8V8\ReadModeSC {}
 
         public function setReadModeSc(mixed $read_mode_sc) {}
 
-        public function getFilterExpression(): ?\Aerospike\Expression {}
+        public function getFilterExpression(): ?\AerospikeV8V8\Expression {}
 
         public function setFilterExpression(mixed $filter_expression) {}
     }
@@ -636,21 +636,21 @@ namespace Aerospike {
         /**
          * ReadModeAP indicates read policy for AP (availability) namespaces.
          */
-        public function getReadModeAp(): \Aerospike\ReadModeAP {}
+        public function getReadModeAp(): \AerospikeV8V8\ReadModeAP {}
 
         public function setReadModeAp(mixed $read_mode_ap) {}
 
         /**
          * ReadModeSC indicates read policy for SC (strong consistency) namespaces.
          */
-        public function getReadModeSc(): \Aerospike\ReadModeSC {}
+        public function getReadModeSc(): \AerospikeV8V8\ReadModeSC {}
 
         public function setReadModeSc(mixed $read_mode_sc) {}
 
         /**
          * FilterExpression is the optional Filter Expression. Supported on Server v5.2+
          */
-        public function getFilterExpression(): ?\Aerospike\Expression {}
+        public function getFilterExpression(): ?\AerospikeV8V8\Expression {}
 
         public function setFilterExpression(mixed $filter_expression) {}
     }
@@ -720,15 +720,15 @@ namespace Aerospike {
 
         public function setExitFastOnExhaustedConnectionPool(bool $exit_fast_on_exhausted_connection_pool) {}
 
-        public function getReadModeAp(): \Aerospike\ReadModeAP {}
+        public function getReadModeAp(): \AerospikeV8V8\ReadModeAP {}
 
         public function setReadModeAp(mixed $read_mode_ap) {}
 
-        public function getReadModeSc(): \Aerospike\ReadModeSC {}
+        public function getReadModeSc(): \AerospikeV8V8\ReadModeSC {}
 
         public function setReadModeSc(mixed $read_mode_sc) {}
 
-        public function getFilterExpression(): ?\Aerospike\Expression {}
+        public function getFilterExpression(): ?\AerospikeV8V8\Expression {}
 
         public function setFilterExpression(mixed $filter_expression) {}
 
@@ -763,14 +763,14 @@ namespace Aerospike {
          * medium sized batch sizes because requests can be issued in the main transaction thread.
          * This is the default.
          */
-        public static function Sequential(): \Aerospike\Concurrency {}
+        public static function Sequential(): \AerospikeV8V8\Concurrency {}
 
         /**
          * Issue all commands in parallel threads. This mode has a performance advantage for
          * extremely large batch sizes because each node can process the request immediately. The
          * downside is extra threads will need to be created (or takedn from a thread pool).
          */
-        public static function Parallel(): \Aerospike\Concurrency {}
+        public static function Parallel(): \AerospikeV8V8\Concurrency {}
 
         /**
          * Issue up to N commands in parallel threads. When a request completes, a new request
@@ -783,7 +783,7 @@ namespace Aerospike {
          * parallel threads. When a request completes, a new request will be issued until all 16
          * requests are complete.
          */
-        public static function MaxThreads(int $threads): \Aerospike\Concurrency {}
+        public static function MaxThreads(int $threads): \AerospikeV8V8\Concurrency {}
     }
 
     /**
@@ -807,7 +807,7 @@ namespace Aerospike {
          * request is not performed and BatchRecord.ResultCode is set to type.FILTERED_OUT.
          * Default: nil
          */
-        public function getFilterExpression(): ?\Aerospike\Expression {}
+        public function getFilterExpression(): ?\AerospikeV8V8\Expression {}
 
         public function setFilterExpression(mixed $filter_expression) {}
 
@@ -817,7 +817,7 @@ namespace Aerospike {
          * be successful before returning success to the client.
          * Default: CommitLevel.COMMIT_ALL
          */
-        public function getCommitLevel(): \Aerospike\CommitLevel {}
+        public function getCommitLevel(): \AerospikeV8V8\CommitLevel {}
 
         public function setCommitLevel(mixed $commit_level) {}
 
@@ -871,19 +871,19 @@ namespace Aerospike {
         /**
          * None means: Do not use record generation to restrict writes.
          */
-        public static function None(): \Aerospike\GenerationPolicy {}
+        public static function None(): \AerospikeV8V8\GenerationPolicy {}
 
         /**
          * ExpectGenEqual means: Update/delete record if expected generation is equal to server
          * generation. Otherwise, fail.
          */
-        public static function ExpectGenEqual(): \Aerospike\GenerationPolicy {}
+        public static function ExpectGenEqual(): \AerospikeV8V8\GenerationPolicy {}
 
         /**
          * ExpectGenGreater means: Update/delete record if expected generation greater than the server
          * generation. Otherwise, fail. This is useful for restore after backup.
          */
-        public static function ExpectGenGreater(): \Aerospike\GenerationPolicy {}
+        public static function ExpectGenGreater(): \AerospikeV8V8\GenerationPolicy {}
     }
 
     /**
@@ -930,63 +930,63 @@ namespace Aerospike {
      * affected by the command.
      */
     class Expression {
-        public static function new(?int $cmd, mixed $val, ?\Aerospike\Expression $bin, ?int $flags, mixed $module, array $exps): \Aerospike\Expression {}
+        public static function new(?int $cmd, mixed $val, ?\AerospikeV8V8\Expression $bin, ?int $flags, mixed $module, array $exps): \AerospikeV8V8\Expression {}
 
         /**
          * Create a record key expression of specified type.
          */
-        public static function key(mixed $exp_type): \Aerospike\Expression {}
+        public static function key(mixed $exp_type): \AerospikeV8V8\Expression {}
 
         /**
          * Create function that returns if the primary key is stored in the record meta data
          * as a boolean expression. This would occur when `send_key` is true on record write.
          */
-        public static function keyExists(): \Aerospike\Expression {}
+        public static function keyExists(): \AerospikeV8V8\Expression {}
 
         /**
          * Create 64 bit int bin expression.
          */
-        public static function intBin(string $name): \Aerospike\Expression {}
+        public static function intBin(string $name): \AerospikeV8V8\Expression {}
 
         /**
          * Create string bin expression.
          */
-        public static function stringBin(string $name): \Aerospike\Expression {}
+        public static function stringBin(string $name): \AerospikeV8V8\Expression {}
 
         /**
          * Create blob bin expression.
          */
-        public static function blobBin(string $name): \Aerospike\Expression {}
+        public static function blobBin(string $name): \AerospikeV8V8\Expression {}
 
         /**
          * Create 64 bit float bin expression.
          */
-        public static function floatBin(string $name): \Aerospike\Expression {}
+        public static function floatBin(string $name): \AerospikeV8V8\Expression {}
 
         /**
          * Create geo bin expression.
          */
-        public static function geoBin(string $name): \Aerospike\Expression {}
+        public static function geoBin(string $name): \AerospikeV8V8\Expression {}
 
         /**
          * Create list bin expression.
          */
-        public static function listBin(string $name): \Aerospike\Expression {}
+        public static function listBin(string $name): \AerospikeV8V8\Expression {}
 
         /**
          * Create map bin expression.
          */
-        public static function mapBin(string $name): \Aerospike\Expression {}
+        public static function mapBin(string $name): \AerospikeV8V8\Expression {}
 
         /**
          * Create a HLL bin expression
          */
-        public static function hllBin(string $name): \Aerospike\Expression {}
+        public static function hllBin(string $name): \AerospikeV8V8\Expression {}
 
         /**
          * Create function that returns if bin of specified name exists.
          */
-        public static function binExists(string $name): \Aerospike\Expression {}
+        public static function binExists(string $name): \AerospikeV8V8\Expression {}
 
         /**
          * ExpBinType creates a function that returns bin's integer particle type. Valid values are:
@@ -1004,12 +1004,12 @@ namespace Aerospike {
          *	LDT     = 21
          *	GEOJSON = 23
          */
-        public static function binType(string $name): \Aerospike\Expression {}
+        public static function binType(string $name): \AerospikeV8V8\Expression {}
 
         /**
          * Create function that returns record set name string.
          */
-        public static function setName(): \Aerospike\Expression {}
+        public static function setName(): \AerospikeV8V8\Expression {}
 
         /**
          * Create function that returns record size on disk.
@@ -1018,7 +1018,7 @@ namespace Aerospike {
          * This expression should only be used for server versions less than 7.0. Use
          * record_size for server version 7.0+.
          */
-        public static function deviceSize(): \Aerospike\Expression {}
+        public static function deviceSize(): \AerospikeV8V8\Expression {}
 
         /**
          * Create expression that returns record size in memory. If server storage-engine is
@@ -1028,166 +1028,166 @@ namespace Aerospike {
          * Requires server version between 5.3 inclusive and 7.0 exclusive.
          * Use record_size for server version 7.0+.
          */
-        public static function memorySize(): \Aerospike\Expression {}
+        public static function memorySize(): \AerospikeV8V8\Expression {}
 
         /**
          * Create function that returns record last update time expressed as 64 bit integer
          * nanoseconds since 1970-01-01 epoch.
          */
-        public static function lastUpdate(): \Aerospike\Expression {}
+        public static function lastUpdate(): \AerospikeV8V8\Expression {}
 
         /**
          * Create expression that returns milliseconds since the record was last updated.
          * This expression usually evaluates quickly because record meta data is cached in memory.
          */
-        public static function sinceUpdate(): \Aerospike\Expression {}
+        public static function sinceUpdate(): \AerospikeV8V8\Expression {}
 
         /**
          * Create function that returns record expiration time expressed as 64 bit integer
          * nanoseconds since 1970-01-01 epoch.
          */
-        public static function voidTime(): \Aerospike\Expression {}
+        public static function voidTime(): \AerospikeV8V8\Expression {}
 
         /**
          * Create function that returns record expiration time (time to live) in integer seconds.
          */
-        public static function ttl(): \Aerospike\Expression {}
+        public static function ttl(): \AerospikeV8V8\Expression {}
 
         /**
          * Create expression that returns if record has been deleted and is still in tombstone state.
          * This expression usually evaluates quickly because record meta data is cached in memory.
          */
-        public static function isTombstone(): \Aerospike\Expression {}
+        public static function isTombstone(): \AerospikeV8V8\Expression {}
 
         /**
          * Create function that returns record digest modulo as integer.
          */
-        public static function digestModulo(int $modulo): \Aerospike\Expression {}
+        public static function digestModulo(int $modulo): \AerospikeV8V8\Expression {}
 
         /**
          * Create function like regular expression string operation.
          */
-        public static function regexCompare(string $regex, int $flags, \Aerospike\Expression $bin): \Aerospike\Expression {}
+        public static function regexCompare(string $regex, int $flags, \AerospikeV8V8\Expression $bin): \AerospikeV8V8\Expression {}
 
         /**
          * Create compare geospatial operation.
          */
-        public static function geoCompare(\Aerospike\Expression $left, \Aerospike\Expression $right): \Aerospike\Expression {}
+        public static function geoCompare(\AerospikeV8V8\Expression $left, \AerospikeV8V8\Expression $right): \AerospikeV8V8\Expression {}
 
         /**
          * Creates 64 bit integer value
          */
-        public static function intVal(int $val): \Aerospike\Expression {}
+        public static function intVal(int $val): \AerospikeV8V8\Expression {}
 
         /**
          * Creates a Boolean value
          */
-        public static function boolVal(bool $val): \Aerospike\Expression {}
+        public static function boolVal(bool $val): \AerospikeV8V8\Expression {}
 
         /**
          * Creates String bin value
          */
-        public static function stringVal(string $val): \Aerospike\Expression {}
+        public static function stringVal(string $val): \AerospikeV8V8\Expression {}
 
         /**
          * Creates 64 bit float bin value
          */
-        public static function floatVal(float $val): \Aerospike\Expression {}
+        public static function floatVal(float $val): \AerospikeV8V8\Expression {}
 
         /**
          * Creates Blob bin value
          */
-        public static function blobVal(array $val): \Aerospike\Expression {}
+        public static function blobVal(array $val): \AerospikeV8V8\Expression {}
 
         /**
          * Create List bin PHPValue
          * Not Supported in pre-alpha release
          */
-        public static function listVal(array $val): \Aerospike\Expression {}
+        public static function listVal(array $val): \AerospikeV8V8\Expression {}
 
         /**
          * Create Map bin PHPValue
          * Value must be a map
          */
-        public static function mapVal(mixed $val): ?\Aerospike\Expression {}
+        public static function mapVal(mixed $val): ?\AerospikeV8V8\Expression {}
 
         /**
          * Create geospatial json string value.
          */
-        public static function geoVal(string $val): \Aerospike\Expression {}
+        public static function geoVal(string $val): \AerospikeV8V8\Expression {}
 
         /**
          * Create a Nil PHPValue
          */
-        public static function nil(): \Aerospike\Expression {}
+        public static function nil(): \AerospikeV8V8\Expression {}
 
         /**
          * Create a Infinity PHPValue
          */
-        public static function infinity(): \Aerospike\Expression {}
+        public static function infinity(): \AerospikeV8V8\Expression {}
 
         /**
          * Create a WildCard PHPValue
          */
-        public static function wildcard(): \Aerospike\Expression {}
+        public static function wildcard(): \AerospikeV8V8\Expression {}
 
         /**
          * Create "not" operator expression.
          */
-        public static function not(\Aerospike\Expression $exp): \Aerospike\Expression {}
+        public static function not(\AerospikeV8V8\Expression $exp): \AerospikeV8V8\Expression {}
 
         /**
          * Create "and" (&&) operator that applies to a variable number of expressions.
          * /// (a > 5 || a == 0) && b < 3
          */
-        public static function and(array $exps): \Aerospike\Expression {}
+        public static function and(array $exps): \AerospikeV8V8\Expression {}
 
         /**
          * Create "or" (||) operator that applies to a variable number of expressions.
          */
-        public static function or(array $exps): \Aerospike\Expression {}
+        public static function or(array $exps): \AerospikeV8V8\Expression {}
 
         /**
          * Create "xor" (^) operator that applies to a variable number of expressions.
          */
-        public static function xor(array $exps): \Aerospike\Expression {}
+        public static function xor(array $exps): \AerospikeV8V8\Expression {}
 
         /**
          * Create equal (==) expression.
          */
-        public static function eq(\Aerospike\Expression $left, \Aerospike\Expression $right): \Aerospike\Expression {}
+        public static function eq(\AerospikeV8V8\Expression $left, \AerospikeV8V8\Expression $right): \AerospikeV8V8\Expression {}
 
         /**
          * Create not equal (!=) expression
          */
-        public static function ne(\Aerospike\Expression $left, \Aerospike\Expression $right): \Aerospike\Expression {}
+        public static function ne(\AerospikeV8V8\Expression $left, \AerospikeV8V8\Expression $right): \AerospikeV8V8\Expression {}
 
         /**
          * Create greater than (>) operation.
          */
-        public static function gt(\Aerospike\Expression $left, \Aerospike\Expression $right): \Aerospike\Expression {}
+        public static function gt(\AerospikeV8V8\Expression $left, \AerospikeV8V8\Expression $right): \AerospikeV8V8\Expression {}
 
         /**
          * Create greater than or equal (>=) operation.
          */
-        public static function ge(\Aerospike\Expression $left, \Aerospike\Expression $right): \Aerospike\Expression {}
+        public static function ge(\AerospikeV8V8\Expression $left, \AerospikeV8V8\Expression $right): \AerospikeV8V8\Expression {}
 
         /**
          * Create less than (<) operation.
          */
-        public static function lt(\Aerospike\Expression $left, \Aerospike\Expression $right): \Aerospike\Expression {}
+        public static function lt(\AerospikeV8V8\Expression $left, \AerospikeV8V8\Expression $right): \AerospikeV8V8\Expression {}
 
         /**
          * Create less than or equals (<=) operation.
          */
-        public static function le(\Aerospike\Expression $left, \Aerospike\Expression $right): \Aerospike\Expression {}
+        public static function le(\AerospikeV8V8\Expression $left, \AerospikeV8V8\Expression $right): \AerospikeV8V8\Expression {}
 
         /**
          * Create "add" (+) operator that applies to a variable number of expressions.
          * Return sum of all `FilterExpressions` given. All arguments must resolve to the same type (integer or float).
          * Requires server version 5.6.0+.
          */
-        public static function numAdd(array $exps): \Aerospike\Expression {}
+        public static function numAdd(array $exps): \AerospikeV8V8\Expression {}
 
         /**
          * Create "subtract" (-) operator that applies to a variable number of expressions.
@@ -1196,7 +1196,7 @@ namespace Aerospike {
          * `FilterExpressions`. All `FilterExpressions` must resolve to the same type (integer or float).
          * Requires server version 5.6.0+.
          */
-        public static function numSub(array $exps): \Aerospike\Expression {}
+        public static function numSub(array $exps): \AerospikeV8V8\Expression {}
 
         /**
          * Create "multiply" (*) operator that applies to a variable number of expressions.
@@ -1204,7 +1204,7 @@ namespace Aerospike {
          * that `FilterExpressions`. All `FilterExpressions` must resolve to the same type (integer or float).
          * Requires server version 5.6.0+.
          */
-        public static function numMul(array $exps): \Aerospike\Expression {}
+        public static function numMul(array $exps): \AerospikeV8V8\Expression {}
 
         /**
          * Create "divide" (/) operator that applies to a variable number of expressions.
@@ -1213,113 +1213,113 @@ namespace Aerospike {
          * All `FilterExpressions` must resolve to the same type (integer or float).
          * Requires server version 5.6.0+.
          */
-        public static function numDiv(array $exps): \Aerospike\Expression {}
+        public static function numDiv(array $exps): \AerospikeV8V8\Expression {}
 
         /**
          * Create "power" operator that raises a "base" to the "exponent" power.
          * All arguments must resolve to floats.
          * Requires server version 5.6.0+.
          */
-        public static function numPow(\Aerospike\Expression $base, \Aerospike\Expression $exponent): \Aerospike\Expression {}
+        public static function numPow(\AerospikeV8V8\Expression $base, \AerospikeV8V8\Expression $exponent): \AerospikeV8V8\Expression {}
 
         /**
          * Create "log" operator for logarithm of "num" with base "base".
          * All arguments must resolve to floats.
          * Requires server version 5.6.0+.
          */
-        public static function numLog(\Aerospike\Expression $num, \Aerospike\Expression $base): \Aerospike\Expression {}
+        public static function numLog(\AerospikeV8V8\Expression $num, \AerospikeV8V8\Expression $base): \AerospikeV8V8\Expression {}
 
         /**
          * Create "modulo" (%) operator that determines the remainder of "numerator"
          * divided by "denominator". All arguments must resolve to integers.
          * Requires server version 5.6.0+.
          */
-        public static function numMod(\Aerospike\Expression $numerator, \Aerospike\Expression $denominator): \Aerospike\Expression {}
+        public static function numMod(\AerospikeV8V8\Expression $numerator, \AerospikeV8V8\Expression $denominator): \AerospikeV8V8\Expression {}
 
         /**
          * Create operator that returns absolute value of a number.
          * All arguments must resolve to integer or float.
          * Requires server version 5.6.0+.
          */
-        public static function numAbs(\Aerospike\Expression $value): \Aerospike\Expression {}
+        public static function numAbs(\AerospikeV8V8\Expression $value): \AerospikeV8V8\Expression {}
 
         /**
          * Create expression that rounds a floating point number down to the closest integer value.
          * The return type is float.
          * Requires server version 5.6.0+.
          */
-        public static function numFloor(\Aerospike\Expression $num): \Aerospike\Expression {}
+        public static function numFloor(\AerospikeV8V8\Expression $num): \AerospikeV8V8\Expression {}
 
         /**
          * Create expression that rounds a floating point number up to the closest integer value.
          * The return type is float.
          * Requires server version 5.6.0+.
          */
-        public static function numCeil(\Aerospike\Expression $num): \Aerospike\Expression {}
+        public static function numCeil(\AerospikeV8V8\Expression $num): \AerospikeV8V8\Expression {}
 
         /**
          * Create expression that converts an integer to a float.
          * Requires server version 5.6.0+.
          */
-        public static function toInt(\Aerospike\Expression $num): \Aerospike\Expression {}
+        public static function toInt(\AerospikeV8V8\Expression $num): \AerospikeV8V8\Expression {}
 
         /**
          * Create expression that converts a float to an integer.
          * Requires server version 5.6.0+.
          */
-        public static function toFloat(\Aerospike\Expression $num): \Aerospike\Expression {}
+        public static function toFloat(\AerospikeV8\Expression $num): \AerospikeV8\Expression {}
 
         /**
          * Create integer "and" (&) operator that is applied to two or more integers.
          * All arguments must resolve to integers.
          * Requires server version 5.6.0+.
          */
-        public static function intAnd(array $exps): \Aerospike\Expression {}
+        public static function intAnd(array $exps): \AerospikeV8\Expression {}
 
         /**
          * Create integer "or" (|) operator that is applied to two or more integers.
          * All arguments must resolve to integers.
          * Requires server version 5.6.0+.
          */
-        public static function intOr(array $exps): \Aerospike\Expression {}
+        public static function intOr(array $exps): \AerospikeV8\Expression {}
 
         /**
          * Create integer "xor" (^) operator that is applied to two or more integers.
          * All arguments must resolve to integers.
          * Requires server version 5.6.0+.
          */
-        public static function intXor(array $exps): \Aerospike\Expression {}
+        public static function intXor(array $exps): \AerospikeV8\Expression {}
 
         /**
          * Create integer "not" (~) operator.
          * Requires server version 5.6.0+.
          */
-        public static function intNot(\Aerospike\Expression $exp): \Aerospike\Expression {}
+        public static function intNot(\AerospikeV8\Expression $exp): \AerospikeV8\Expression {}
 
         /**
          * Create integer "left shift" (<<) operator.
          * Requires server version 5.6.0+.
          */
-        public static function intLshift(\Aerospike\Expression $value, \Aerospike\Expression $shift): \Aerospike\Expression {}
+        public static function intLshift(\AerospikeV8\Expression $value, \AerospikeV8\Expression $shift): \AerospikeV8\Expression {}
 
         /**
          * Create integer "logical right shift" (>>>) operator.
          * Requires server version 5.6.0+.
          */
-        public static function intRshift(\Aerospike\Expression $value, \Aerospike\Expression $shift): \Aerospike\Expression {}
+        public static function intRshift(\AerospikeV8\Expression $value, \AerospikeV8\Expression $shift): \AerospikeV8\Expression {}
 
         /**
          * Create integer "arithmetic right shift" (>>) operator.
          * The sign bit is preserved and not shifted.
          * Requires server version 5.6.0+.
          */
-        public static function intArshift(\Aerospike\Expression $value, \Aerospike\Expression $shift): \Aerospike\Expression {}
+        public static function intArshift(\AerospikeV8\Expression $value, \AerospikeV8\Expression $shift): \AerospikeV8\Expression {}
 
         /**
          * Create expression that returns count of integer bits that are set to 1.
          * Requires server version 5.6.0+
          */
-        public static function intCount(\Aerospike\Expression $exp): \Aerospike\Expression {}
+        public static function intCount(\AerospikeV8\Expression $exp): \AerospikeV8\Expression {}
 
         /**
          * Create expression that scans integer bits from left (most significant bit) to
@@ -1329,7 +1329,7 @@ namespace Aerospike {
          * value 1. If "search" is false it will search for bit value 0.
          * Requires server version 5.6.0+.
          */
-        public static function intLscan(\Aerospike\Expression $value, \Aerospike\Expression $search): \Aerospike\Expression {}
+        public static function intLscan(\AerospikeV8\Expression $value, \AerospikeV8\Expression $search): \AerospikeV8\Expression {}
 
         /**
          * Create expression that scans integer bits from right (least significant bit) to
@@ -1339,21 +1339,21 @@ namespace Aerospike {
          * value 1. If "search" is false it will search for bit value 0.
          * Requires server version 5.6.0+.
          */
-        public static function intRscan(\Aerospike\Expression $value, \Aerospike\Expression $search): \Aerospike\Expression {}
+        public static function intRscan(\AerospikeV8\Expression $value, \AerospikeV8\Expression $search): \AerospikeV8\Expression {}
 
         /**
          * Create expression that returns the minimum value in a variable number of expressions.
          * All arguments must be the same type (integer or float).
          * Requires server version 5.6.0+.
          */
-        public static function min(array $exps): \Aerospike\Expression {}
+        public static function min(array $exps): \AerospikeV8\Expression {}
 
         /**
          * Create expression that returns the maximum value in a variable number of expressions.
          * All arguments must be the same type (integer or float).
          * Requires server version 5.6.0+.
          */
-        public static function max(array $exps): \Aerospike\Expression {}
+        public static function max(array $exps): \AerospikeV8\Expression {}
 
         /**
          *--------------------------------------------------
@@ -1366,7 +1366,7 @@ namespace Aerospike {
          * /// Args Format: bool exp1, action exp1, bool exp2, action exp2, ..., action-default
          * /// Apply operator based on type.
          */
-        public static function cond(array $exps): \Aerospike\Expression {}
+        public static function cond(array $exps): \AerospikeV8\Expression {}
 
         /**
          * Define variables and expressions in scope.
@@ -1374,7 +1374,7 @@ namespace Aerospike {
          * ```
          * /// 5 < a < 10
          */
-        public static function expLet(array $exps): \Aerospike\Expression {}
+        public static function expLet(array $exps): \AerospikeV8\Expression {}
 
         /**
          * Assign variable to an expression that can be accessed later.
@@ -1382,13 +1382,13 @@ namespace Aerospike {
          * ```
          * /// 5 < a < 10
          */
-        public static function def(string $name, \Aerospike\Expression $value): \Aerospike\Expression {}
+        public static function def(string $name, \AerospikeV8\Expression $value): \AerospikeV8\Expression {}
 
         /**
          * Retrieve expression value from a variable.
          * Requires server version 5.6.0+.
          */
-        public static function var(string $name): \Aerospike\Expression {}
+        public static function var(string $name): \AerospikeV8\Expression {}
 
         /**
          * Create unknown value. Used to intentionally fail an expression.
@@ -1396,7 +1396,7 @@ namespace Aerospike {
          * or `ExpReadFlags` `EVAL_NO_FAIL`.
          * Requires server version 5.6.0+.
          */
-        public static function unknown(): \Aerospike\Expression {}
+        public static function unknown(): \AerospikeV8\Expression {}
     }
 
     /**
@@ -1425,12 +1425,12 @@ namespace Aerospike {
          * -1: Last item.
          * -3: Third to last item.
          */
-        public static function listIndex(int $index): \Aerospike\Context {}
+        public static function listIndex(int $index): \AerospikeV8\Context {}
 
         /**
          * CtxListIndexCreate list with given type at index offset, given an order and pad.
          */
-        public static function listIndexCreate(int $index, mixed $order, bool $pad): \Aerospike\Context {}
+        public static function listIndexCreate(int $index, mixed $order, bool $pad): \AerospikeV8\Context {}
 
         /**
          * CtxListRank defines Lookup list by rank.
@@ -1438,12 +1438,12 @@ namespace Aerospike {
          * N = Nth smallest value
          * -1 = largest value
          */
-        public static function listRank(int $rank): \Aerospike\Context {}
+        public static function listRank(int $rank): \AerospikeV8\Context {}
 
         /**
          * CtxListValue defines Lookup list by value.
          */
-        public static function listValue(mixed $key): \Aerospike\Context {}
+        public static function listValue(mixed $key): \AerospikeV8\Context {}
 
         /**
          * CtxMapIndex defines Lookup map by index offset.
@@ -1455,7 +1455,7 @@ namespace Aerospike {
          * -1: Last item.
          * -3: Third to last item.
          */
-        public static function mapIndex(int $index): \Aerospike\Context {}
+        public static function mapIndex(int $index): \AerospikeV8\Context {}
 
         /**
          * CtxMapRank defines Lookup map by rank.
@@ -1463,22 +1463,22 @@ namespace Aerospike {
          * N = Nth smallest value
          * -1 = largest value
          */
-        public static function mapRank(int $rank): \Aerospike\Context {}
+        public static function mapRank(int $rank): \AerospikeV8\Context {}
 
         /**
          * CtxMapKey defines Lookup map by key.
          */
-        public static function mapKey(mixed $key): \Aerospike\Context {}
+        public static function mapKey(mixed $key): \AerospikeV8\Context {}
 
         /**
          * CtxMapKeyCreate creates map with given type at map key.
          */
-        public static function mapKeyCreate(mixed $key, mixed $order): \Aerospike\Context {}
+        public static function mapKeyCreate(mixed $key, mixed $order): \AerospikeV8\Context {}
 
         /**
          * CtxMapValue defines Lookup map by value.
          */
-        public static function mapValue(mixed $key): \Aerospike\Context {}
+        public static function mapValue(mixed $key): \AerospikeV8\Context {}
     }
 
     /**
@@ -1488,7 +1488,7 @@ namespace Aerospike {
         /**
          * ListReturnTypeNone will not return a result.
          */
-        public static function None(): \Aerospike\ListReturnType {}
+        public static function None(): \AerospikeV8\ListReturnType {}
 
         /**
          * ListReturnTypeIndex will return index offset order.
@@ -1496,14 +1496,14 @@ namespace Aerospike {
          * N = Nth key
          * -1 = last key
          */
-        public static function Index(): \Aerospike\ListReturnType {}
+        public static function Index(): \AerospikeV8\ListReturnType {}
 
         /**
          * ListReturnTypeReverseIndex will return reverse index offset order.
          * 0 = last key
          * -1 = first key
          */
-        public static function ReverseIndex(): \Aerospike\ListReturnType {}
+        public static function ReverseIndex(): \AerospikeV8\ListReturnType {}
 
         /**
          * ListReturnTypeRank will return value order.
@@ -1511,7 +1511,7 @@ namespace Aerospike {
          * N = Nth smallest value
          * -1 = largest value
          */
-        public static function Rank(): \Aerospike\ListReturnType {}
+        public static function Rank(): \AerospikeV8\ListReturnType {}
 
         /**
          * ListReturnTypeReverseRank will return reverse value order.
@@ -1519,22 +1519,22 @@ namespace Aerospike {
          * N = Nth largest value
          * -1 = smallest value
          */
-        public static function ReverseRank(): \Aerospike\ListReturnType {}
+        public static function ReverseRank(): \AerospikeV8\ListReturnType {}
 
         /**
          * ListReturnTypeCount will return count of items selected.
          */
-        public static function count(): \Aerospike\ListReturnType {}
+        public static function count(): \AerospikeV8\ListReturnType {}
 
         /**
          * ListReturnTypeValue will return value for single key read and value list for range read.
          */
-        public static function Value(): \Aerospike\ListReturnType {}
+        public static function Value(): \AerospikeV8\ListReturnType {}
 
         /**
          * ListReturnTypeExists returns true if count > 0.
          */
-        public static function Exists(): \Aerospike\ListReturnType {}
+        public static function Exists(): \AerospikeV8\ListReturnType {}
 
         /**
          * ListReturnTypeInverted will invert meaning of list command and return values.  For example:
@@ -1544,7 +1544,7 @@ namespace Aerospike {
          * ListOperation.removeByIndexRange(binName, index, count, ListReturnType.INDEX | ListReturnType.INVERTED);
          * With the INVERTED flag enabled, the items outside of the specified index range will be removed and returned.
          */
-        public function inverted(): \Aerospike\ListReturnType {}
+        public function inverted(): \AerospikeV8\ListReturnType {}
     }
 
     /**
@@ -1588,13 +1588,13 @@ namespace Aerospike {
         /**
          * ReadModeAPOne indicates that a single node should be involved in the read operation.
          */
-        public static function one(): \Aerospike\ReadModeAP {}
+        public static function one(): \AerospikeV8\ReadModeAP {}
 
         /**
          * ReadModeAPAll indicates that all duplicates should be consulted in
          * the read operation.
          */
-        public static function all(): \Aerospike\ReadModeAP {}
+        public static function all(): \AerospikeV8\ReadModeAP {}
     }
 
     /**
@@ -1615,22 +1615,22 @@ namespace Aerospike {
         /**
          * NUMERIC specifies an index on numeric values.
          */
-        public static function Numeric(): \Aerospike\IndexType {}
+        public static function Numeric(): \AerospikeV8\IndexType {}
 
         /**
          * STRING specifies an index on string values.
          */
-        public static function String(): \Aerospike\IndexType {}
+        public static function String(): \AerospikeV8\IndexType {}
 
         /**
          * BLOB specifies a []byte index. Requires server version 7.0+.
          */
-        public static function Blob(): \Aerospike\IndexType {}
+        public static function Blob(): \AerospikeV8\IndexType {}
 
         /**
          * GEO2DSPHERE specifies 2-dimensional spherical geospatial index.
          */
-        public static function Geo2DSphere(): \Aerospike\IndexType {}
+        public static function Geo2DSphere(): \AerospikeV8\IndexType {}
     }
 
     /**
@@ -1640,7 +1640,7 @@ namespace Aerospike {
         /**
          * NewMapPolicy creates a MapPolicy with WriteMode. Use with servers before v4.3.
          */
-        public function __construct(\Aerospike\MapOrderType $order, ?array $flags, ?bool $persisted_index) {}
+        public function __construct(\AerospikeV8\MapOrderType $order, ?array $flags, ?bool $persisted_index) {}
     }
 
     /**
@@ -1652,13 +1652,13 @@ namespace Aerospike {
          * Update means: Create or update record.
          * Merge write command bins with existing bins.
          */
-        public static function Update(): \Aerospike\RecordExistsAction {}
+        public static function Update(): \AerospikeV8\RecordExistsAction {}
 
         /**
          * UpdateOnly means: Update record only. Fail if record does not exist.
          * Merge write command bins with existing bins.
          */
-        public static function UpdateOnly(): \Aerospike\RecordExistsAction {}
+        public static function UpdateOnly(): \AerospikeV8\RecordExistsAction {}
 
         /**
          * Replace means: Create or replace record.
@@ -1666,7 +1666,7 @@ namespace Aerospike {
          * Supported by Aerospike 2 server versions >= 2.7.5 and
          * Aerospike 3 server versions >= 3.1.6.
          */
-        public static function Replace(): \Aerospike\RecordExistsAction {}
+        public static function Replace(): \AerospikeV8\RecordExistsAction {}
 
         /**
          * ReplaceOnly means: Replace record only. Fail if record does not exist.
@@ -1674,39 +1674,39 @@ namespace Aerospike {
          * Supported by Aerospike 2 server versions >= 2.7.5 and
          * Aerospike 3 server versions >= 3.1.6.
          */
-        public static function ReplaceOnly(): \Aerospike\RecordExistsAction {}
+        public static function ReplaceOnly(): \AerospikeV8\RecordExistsAction {}
 
         /**
          * CreateOnly means: Create only. Fail if record exists.
          */
-        public static function CreateOnly(): \Aerospike\RecordExistsAction {}
+        public static function CreateOnly(): \AerospikeV8\RecordExistsAction {}
     }
 
     /**
      * Server particle types. Unsupported types are commented out.
      */
     class ParticleType {
-        public static function null(): \Aerospike\ParticleType {}
+        public static function null(): \AerospikeV8\ParticleType {}
 
-        public static function integer(): \Aerospike\ParticleType {}
+        public static function integer(): \AerospikeV8\ParticleType {}
 
-        public static function float(): \Aerospike\ParticleType {}
+        public static function float(): \AerospikeV8\ParticleType {}
 
-        public static function string(): \Aerospike\ParticleType {}
+        public static function string(): \AerospikeV8\ParticleType {}
 
-        public static function blob(): \Aerospike\ParticleType {}
+        public static function blob(): \AerospikeV8\ParticleType {}
 
-        public static function digest(): \Aerospike\ParticleType {}
+        public static function digest(): \AerospikeV8\ParticleType {}
 
-        public static function bool(): \Aerospike\ParticleType {}
+        public static function bool(): \AerospikeV8\ParticleType {}
 
-        public static function hll(): \Aerospike\ParticleType {}
+        public static function hll(): \AerospikeV8\ParticleType {}
 
-        public static function map(): \Aerospike\ParticleType {}
+        public static function map(): \AerospikeV8\ParticleType {}
 
-        public static function list(): \Aerospike\ParticleType {}
+        public static function list(): \AerospikeV8\ParticleType {}
 
-        public static function geoJson(): \Aerospike\ParticleType {}
+        public static function geoJson(): \AerospikeV8\ParticleType {}
     }
 
     /**
@@ -1791,15 +1791,15 @@ namespace Aerospike {
 
         public function setExitFastOnExhaustedConnectionPool(bool $exit_fast_on_exhausted_connection_pool) {}
 
-        public function getReadModeAp(): \Aerospike\ReadModeAP {}
+        public function getReadModeAp(): \AerospikeV8\ReadModeAP {}
 
         public function setReadModeAp(mixed $read_mode_ap) {}
 
-        public function getReadModeSc(): \Aerospike\ReadModeSC {}
+        public function getReadModeSc(): \AerospikeV8\ReadModeSC {}
 
         public function setReadModeSc(mixed $read_mode_sc) {}
 
-        public function getFilterExpression(): ?\Aerospike\Expression {}
+        public function getFilterExpression(): ?\AerospikeV8\Expression {}
 
         public function setFilterExpression(mixed $filter_expression) {}
     }
@@ -1813,13 +1813,13 @@ namespace Aerospike {
          * ConsistencyOne indicates only a single replica should be consulted in
          * the read operation.
          */
-        public static function ConsistencyOne(): \Aerospike\ConsistencyLevel {}
+        public static function ConsistencyOne(): \AerospikeV8\ConsistencyLevel {}
 
         /**
          * ConsistencyAll indicates that all replicas should be consulted in
          * the read operation.
          */
-        public static function ConsistencyAll(): \Aerospike\ConsistencyLevel {}
+        public static function ConsistencyAll(): \AerospikeV8\ConsistencyLevel {}
     }
 
     /**
@@ -1833,12 +1833,12 @@ namespace Aerospike {
         /**
          * ListOrderOrdered signifies that list is Ordered.
          */
-        public static function Ordered(): \Aerospike\ListOrderType {}
+        public static function Ordered(): \AerospikeV8\ListOrderType {}
 
         /**
          * ListOrderUnordered signifies that list is not ordered. This is the default.
          */
-        public static function Unordered(): \Aerospike\ListOrderType {}
+        public static function Unordered(): \AerospikeV8\ListOrderType {}
     }
 
     /**
@@ -1879,7 +1879,7 @@ namespace Aerospike {
          * a small number of records per node (Short), or a long query with relaxed read consistency for AP namespaces (LongRelaxAP). 
          * These options influence how the server optimizes query execution to meet the expected duration requirements.
          */
-        public function getExpectedDuration(): \Aerospike\QueryDuration {}
+        public function getExpectedDuration(): \AerospikeV8\QueryDuration {}
 
         public function setExpectedDuration(mixed $expected_duration) {}
 
@@ -1941,15 +1941,15 @@ namespace Aerospike {
 
         public function setExitFastOnExhaustedConnectionPool(bool $exit_fast_on_exhausted_connection_pool) {}
 
-        public function getReadModeAp(): \Aerospike\ReadModeAP {}
+        public function getReadModeAp(): \AerospikeV8\ReadModeAP {}
 
         public function setReadModeAp(mixed $read_mode_ap) {}
 
-        public function getReadModeSc(): \Aerospike\ReadModeSC {}
+        public function getReadModeSc(): \AerospikeV8\ReadModeSC {}
 
         public function setReadModeSc(mixed $read_mode_sc) {}
 
-        public function getFilterExpression(): ?\Aerospike\Expression {}
+        public function getFilterExpression(): ?\AerospikeV8\Expression {}
 
         public function setFilterExpression(mixed $filter_expression) {}
     }
@@ -1975,7 +1975,7 @@ namespace Aerospike {
      * BatchDelete encapsulates a batch delete operation.
      */
     class BatchDelete {
-        public function __construct(\Aerospike\BatchDeletePolicy $policy, \Aerospike\Key $key) {}
+        public function __construct(\AerospikeV8\BatchDeletePolicy $policy, \AerospikeV8\Key $key) {}
     }
 
     /**
@@ -2001,7 +2001,7 @@ namespace Aerospike {
         /**
          * Getter method to retrieve the language of the UDF.
          */
-        public function getLanguage(): \Aerospike\UdfLanguage {}
+        public function getLanguage(): \AerospikeV8\UdfLanguage {}
     }
 
     /**
@@ -2011,22 +2011,22 @@ namespace Aerospike {
         /**
          * BitResizeFlagsDefault specifies the defalt flag.
          */
-        public static function Default(): \Aerospike\BitwiseResizeFlags {}
+        public static function Default(): \AerospikeV8\BitwiseResizeFlags {}
 
         /**
          * BitResizeFlagsFromFront Adds/removes bytes from the beginning instead of the end.
          */
-        public static function FromFront(): \Aerospike\BitwiseResizeFlags {}
+        public static function FromFront(): \AerospikeV8\BitwiseResizeFlags {}
 
         /**
          * BitResizeFlagsGrowOnly will only allow the []byte size to increase.
          */
-        public static function GrowOnly(): \Aerospike\BitwiseResizeFlags {}
+        public static function GrowOnly(): \AerospikeV8\BitwiseResizeFlags {}
 
         /**
          * BitResizeFlagsShrinkOnly will only allow the []byte size to decrease.
          */
-        public static function ShrinkOnly(): \Aerospike\BitwiseResizeFlags {}
+        public static function ShrinkOnly(): \AerospikeV8\BitwiseResizeFlags {}
     }
 
     /**
@@ -2037,7 +2037,7 @@ namespace Aerospike {
         /**
          * NONE will will not return a result.
          */
-        public static function None(): \Aerospike\MapReturnType {}
+        public static function None(): \AerospikeV8\MapReturnType {}
 
         /**
          * INDEX will return key index order.
@@ -2046,7 +2046,7 @@ namespace Aerospike {
          * N = Nth key
          * -1 = last key
          */
-        public static function Index(): \Aerospike\MapReturnType {}
+        public static function Index(): \AerospikeV8\MapReturnType {}
 
         /**
          * REVERSE_INDEX will return reverse key order.
@@ -2054,7 +2054,7 @@ namespace Aerospike {
          * 0 = last key
          * -1 = first key
          */
-        public static function ReverseIndex(): \Aerospike\MapReturnType {}
+        public static function ReverseIndex(): \AerospikeV8\MapReturnType {}
 
         /**
          * RANK will return value order.
@@ -2063,7 +2063,7 @@ namespace Aerospike {
          * N = Nth smallest value
          * -1 = largest value
          */
-        public static function Rank(): \Aerospike\MapReturnType {}
+        public static function Rank(): \AerospikeV8\MapReturnType {}
 
         /**
          * REVERSE_RANK will return reverse value order.
@@ -2072,22 +2072,22 @@ namespace Aerospike {
          * N = Nth largest value
          * -1 = smallest value
          */
-        public static function ReverseRank(): \Aerospike\MapReturnType {}
+        public static function ReverseRank(): \AerospikeV8\MapReturnType {}
 
         /**
          * COUNT will return count of items selected.
          */
-        public static function Count(): \Aerospike\MapReturnType {}
+        public static function Count(): \AerospikeV8\MapReturnType {}
 
         /**
          * KEY will return key for single key read and key list for range read.
          */
-        public static function Key(): \Aerospike\MapReturnType {}
+        public static function Key(): \AerospikeV8\MapReturnType {}
 
         /**
          * VALUE will return value for single key read and value list for range read.
          */
-        public static function Value(): \Aerospike\MapReturnType {}
+        public static function Value(): \AerospikeV8\MapReturnType {}
 
         /**
          * KEY_VALUE will return key/value items. The possible return types are:
@@ -2095,29 +2095,29 @@ namespace Aerospike {
          * map[interface{}]interface{} : Returned for unordered maps
          * []MapPair : Returned for range results where range order needs to be preserved.
          */
-        public static function KeyValue(): \Aerospike\MapReturnType {}
+        public static function KeyValue(): \AerospikeV8\MapReturnType {}
 
         /**
          * EXISTS returns true if count > 0.
          */
-        public static function Exists(): \Aerospike\MapReturnType {}
+        public static function Exists(): \AerospikeV8\MapReturnType {}
 
         /**
          * UNORDERED_MAP returns an unordered map.
          */
-        public static function UnorderedMap(): \Aerospike\MapReturnType {}
+        public static function UnorderedMap(): \AerospikeV8\MapReturnType {}
 
         /**
          * ORDERED_MAP returns an ordered map.
          */
-        public static function OrderedMap(): \Aerospike\MapReturnType {}
+        public static function OrderedMap(): \AerospikeV8\MapReturnType {}
 
         /**
          * INVERTED will invert meaning of map command and return values.  For example:
          * MapRemoveByKeyRange(binName, keyBegin, keyEnd, MapReturnType.KEY | MapReturnType.INVERTED)
          * With the INVERTED flag enabled, the keys outside of the specified key range will be removed and returned.
          */
-        public function Inverted(): \Aerospike\MapReturnType {}
+        public function Inverted(): \AerospikeV8\MapReturnType {}
     }
 
     /**
@@ -2129,25 +2129,25 @@ namespace Aerospike {
          * ReadModeSCSession ensures this client will only see an increasing sequence of record versions.
          * Server only reads from master.  This is the default.
          */
-        public static function Session(): \Aerospike\ReadModeSC {}
+        public static function Session(): \AerospikeV8\ReadModeSC {}
 
         /**
          * ReadModeSCLinearize ensures ALL clients will only see an increasing sequence of record versions.
          * Server only reads from master.
          */
-        public static function Linearize(): \Aerospike\ReadModeSC {}
+        public static function Linearize(): \AerospikeV8\ReadModeSC {}
 
         /**
          * ReadModeSCAllowReplica indicates that the server may read from master or any full (non-migrating) replica.
          * Increasing sequence of record versions is not guaranteed.
          */
-        public static function AllowReplica(): \Aerospike\ReadModeSC {}
+        public static function AllowReplica(): \AerospikeV8\ReadModeSC {}
 
         /**
          * ReadModeSCAllowUnavailable indicates that the server may read from master or any full (non-migrating) replica or from unavailable
          * partitions.  Increasing sequence of record versions is not guaranteed.
          */
-        public static function AllowUnavailable(): \Aerospike\ReadModeSC {}
+        public static function AllowUnavailable(): \AerospikeV8\ReadModeSC {}
     }
 
     /**
@@ -2160,43 +2160,43 @@ namespace Aerospike {
          * NewEqualFilter creates a new equality filter instance for query.
          * Value can be an integer, string or a blob (byte array). Byte arrays are only supported on server v7+.
          */
-        public static function equal(string $bin_name, mixed $value, ?array $ctx): \Aerospike\Filter {}
+        public static function equal(string $bin_name, mixed $value, ?array $ctx): \AerospikeV8\Filter {}
 
         /**
          * NewRangeFilter creates a range filter for query.
          * Range arguments must be int64 values.
          * String ranges are not supported.
          */
-        public static function range(string $bin_name, mixed $begin, mixed $end, ?array $ctx): \Aerospike\Filter {}
+        public static function range(string $bin_name, mixed $begin, mixed $end, ?array $ctx): \AerospikeV8\Filter {}
 
         /**
          * NewContainsFilter creates a contains filter for query on collection index.
          * Value can be an integer, string or a blob (byte array). Byte arrays are only supported on server v7+.
          */
-        public static function contains(string $bin_name, mixed $value, ?\Aerospike\IndexCollectionType $cit, ?array $ctx): \Aerospike\Filter {}
+        public static function contains(string $bin_name, mixed $value, ?\AerospikeV8\IndexCollectionType $cit, ?array $ctx): \AerospikeV8\Filter {}
 
         /**
          * NewContainsRangeFilter creates a contains filter for query on ranges of data in a collection index.
          */
-        public static function containsRange(string $bin_name, mixed $begin, mixed $end, ?\Aerospike\IndexCollectionType $cit, ?array $ctx): \Aerospike\Filter {}
+        public static function containsRange(string $bin_name, mixed $begin, mixed $end, ?\AerospikeV8\IndexCollectionType $cit, ?array $ctx): \AerospikeV8\Filter {}
 
         /**
          * NewGeoWithinRegionFilter creates a geospatial "within region" filter for query.
          * Argument must be a valid GeoJSON region.
          */
-        public static function withinRegion(string $bin_name, string $region, ?\Aerospike\IndexCollectionType $cit, ?array $ctx): \Aerospike\Filter {}
+        public static function withinRegion(string $bin_name, string $region, ?\AerospikeV8\IndexCollectionType $cit, ?array $ctx): \AerospikeV8\Filter {}
 
         /**
          * NewGeoWithinRegionForCollectionFilter creates a geospatial "within region" filter for query on collection index.
          * Argument must be a valid GeoJSON region.
          */
-        public static function withinRadius(string $bin_name, float $lat, float $lng, float $radius, ?\Aerospike\IndexCollectionType $cit, ?array $ctx): \Aerospike\Filter {}
+        public static function withinRadius(string $bin_name, float $lat, float $lng, float $radius, ?\AerospikeV8\IndexCollectionType $cit, ?array $ctx): \AerospikeV8\Filter {}
 
         /**
          * NewGeoRegionsContainingPointFilter creates a geospatial "containing point" filter for query.
          * Argument must be a valid GeoJSON point.
          */
-        public static function regionsContainingPoint(string $bin_name, float $lat, float $lng, ?\Aerospike\IndexCollectionType $cit, ?array $ctx): \Aerospike\Filter {}
+        public static function regionsContainingPoint(string $bin_name, float $lat, float $lng, ?\AerospikeV8\IndexCollectionType $cit, ?array $ctx): \AerospikeV8\Filter {}
     }
 
     /**
@@ -2204,12 +2204,12 @@ namespace Aerospike {
      * where variable bins are needed for each key.
      */
     class BatchRead {
-        public function __construct(\Aerospike\BatchReadPolicy $policy, \Aerospike\Key $key, ?array $bins) {}
+        public function __construct(\AerospikeV8\BatchReadPolicy $policy, \AerospikeV8\Key $key, ?array $bins) {}
 
         /**
          * Optional read policy.
          */
-        public static function ops(\Aerospike\BatchReadPolicy $policy, \Aerospike\Key $key, array $ops): \Aerospike\BatchRead {}
+        public static function ops(\AerospikeV8\BatchReadPolicy $policy, \AerospikeV8\Key $key, array $ops): \AerospikeV8\BatchRead {}
 
         /**
          * Ops specifies the operations to perform for every key.
@@ -2217,7 +2217,7 @@ namespace Aerospike {
          * A binName can be emulated with `GetOp(binName)`
          * Supported by server v5.6.0+.
          */
-        public static function header(\Aerospike\BatchReadPolicy $policy, \Aerospike\Key $key): \Aerospike\BatchRead {}
+        public static function header(\AerospikeV8\BatchReadPolicy $policy, \AerospikeV8\Key $key): \AerospikeV8\BatchRead {}
     }
 
     /**
@@ -2254,7 +2254,7 @@ namespace Aerospike {
          *	$resizeFlags = 0
          *	$bin result = [0b00000001, 0b01000010, 0b00000000, 0b00000000]
          */
-        public static function resize(\Aerospike\BitwisePolicy $policy, string $bin_name, int $byte_size, mixed $resize_flags, ?array $ctx): \Aerospike\Operation {}
+        public static function resize(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $byte_size, mixed $resize_flags, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitInsertOp creates byte "insert" operation.
@@ -2267,7 +2267,7 @@ namespace Aerospike {
          *	$value = [0b11111111, 0b11000111]
          *	$bin result = [0b00000001, 0b11111111, 0b11000111, 0b01000010, 0b00000011, 0b00000100, 0b00000101]
          */
-        public static function insert(\Aerospike\BitwisePolicy $policy, string $bin_name, int $byte_offset, array $value, ?array $ctx): \Aerospike\Operation {}
+        public static function insert(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $byte_offset, array $value, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitRemoveOp creates byte "remove" operation.
@@ -2280,7 +2280,7 @@ namespace Aerospike {
          *	$byteSize = 3
          *	$bin result = [0b00000001, 0b01000010]
          */
-        public static function remove(\Aerospike\BitwisePolicy $policy, string $bin_name, int $byte_offset, int $byte_size, ?array $ctx): \Aerospike\Operation {}
+        public static function remove(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $byte_offset, int $byte_size, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitSetOp creates bit "set" operation.
@@ -2294,7 +2294,7 @@ namespace Aerospike {
          *	$value = [0b11100000]
          *	$bin result = [0b00000001, 0b01000111, 0b00000011, 0b00000100, 0b00000101]
          */
-        public static function set(\Aerospike\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, array $value, ?array $ctx): \Aerospike\Operation {}
+        public static function set(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, array $value, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitOrOp creates bit "or" operation.
@@ -2308,7 +2308,7 @@ namespace Aerospike {
          *	$value = [0b10101000]
          *	bin result = [0b00000001, 0b01000010, 0b01010111, 0b00000100, 0b00000101]
          */
-        public static function or(\Aerospike\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, array $value, ?array $ctx): \Aerospike\Operation {}
+        public static function or(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, array $value, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitXorOp creates bit "exclusive or" operation.
@@ -2322,7 +2322,7 @@ namespace Aerospike {
          *	value = [0b10101100]
          *	bin result = [0b00000001, 0b01000010, 0b01010101, 0b00000100, 0b00000101]
          */
-        public static function xor(\Aerospike\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, array $value, ?array $ctx): \Aerospike\Operation {}
+        public static function xor(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, array $value, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitAndOp creates bit "and" operation.
@@ -2336,7 +2336,7 @@ namespace Aerospike {
          *	value = [0b00111100, 0b10000000]
          *	bin result = [0b00000001, 0b01000010, 0b00000010, 0b00000000, 0b00000101]
          */
-        public static function and(\Aerospike\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, array $value, ?array $ctx): \Aerospike\Operation {}
+        public static function and(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, array $value, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitNotOp creates bit "not" operation.
@@ -2349,7 +2349,7 @@ namespace Aerospike {
          *	bitSize = 6
          *	bin result = [0b00000001, 0b01000010, 0b00000011, 0b01111010, 0b00000101]
          */
-        public static function not(\Aerospike\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, ?array $ctx): \Aerospike\Operation {}
+        public static function not(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitLShiftOp creates bit "left shift" operation.
@@ -2363,7 +2363,7 @@ namespace Aerospike {
          *	shift = 3
          *	bin result = [0b00000001, 0b01000010, 0b00000011, 0b00000100, 0b00101000]
          */
-        public static function lshift(\Aerospike\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, int $shift, ?array $ctx): \Aerospike\Operation {}
+        public static function lshift(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, int $shift, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitRShiftOp creates bit "right shift" operation.
@@ -2377,7 +2377,7 @@ namespace Aerospike {
          *	shift = 1
          *	bin result = [0b00000000, 0b11000010, 0b00000011, 0b00000100, 0b00000101]
          */
-        public static function rshift(\Aerospike\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, int $shift, ?array $ctx): \Aerospike\Operation {}
+        public static function rshift(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, int $shift, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitAddOp creates bit "add" operation.
@@ -2394,7 +2394,7 @@ namespace Aerospike {
          *	signed = false
          *	bin result = [0b00000001, 0b01000010, 0b00000011, 0b00000100, 0b10000101]
          */
-        public static function add(\Aerospike\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, int $value, bool $signed, mixed $action, ?array $ctx): \Aerospike\Operation {}
+        public static function add(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, int $value, bool $signed, mixed $action, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitSubtractOp creates bit "subtract" operation.
@@ -2411,7 +2411,7 @@ namespace Aerospike {
          *	signed = false
          *	bin result = [0b00000001, 0b01000010, 0b00000011, 0b0000011, 0b10000101]
          */
-        public static function subtract(\Aerospike\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, int $value, bool $signed, mixed $action, ?array $ctx): \Aerospike\Operation {}
+        public static function subtract(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, int $value, bool $signed, mixed $action, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitSetIntOp creates bit "setInt" operation.
@@ -2425,7 +2425,7 @@ namespace Aerospike {
          *	value = 127
          *	bin result = [0b00111111, 0b11000010, 0b00000011, 0b0000100, 0b00000101]
          */
-        public static function setInt(\Aerospike\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, int $value, ?array $ctx): \Aerospike\Operation {}
+        public static function setInt(\AerospikeV8\BitwisePolicy $policy, string $bin_name, int $bit_offset, int $bit_size, int $value, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitGetOp creates bit "get" operation.
@@ -2437,7 +2437,7 @@ namespace Aerospike {
          *	bitSize = 5
          *	returns [0b1000000]
          */
-        public static function get(string $bin_name, int $bit_offset, int $bit_size, ?array $ctx): \Aerospike\Operation {}
+        public static function get(string $bin_name, int $bit_offset, int $bit_size, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitCountOp creates bit "count" operation.
@@ -2449,7 +2449,7 @@ namespace Aerospike {
          *	bitSize = 4
          *	returns 2
          */
-        public static function count(string $bin_name, int $bit_offset, int $bit_size, ?array $ctx): \Aerospike\Operation {}
+        public static function count(string $bin_name, int $bit_offset, int $bit_size, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitLScanOp creates bit "left scan" operation.
@@ -2463,7 +2463,7 @@ namespace Aerospike {
          *	value = true
          *	returns 5
          */
-        public static function lscan(string $bin_name, int $bit_offset, int $bit_size, bool $value, ?array $ctx): \Aerospike\Operation {}
+        public static function lscan(string $bin_name, int $bit_offset, int $bit_size, bool $value, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitRScanOp creates bit "right scan" operation.
@@ -2477,7 +2477,7 @@ namespace Aerospike {
          *	value = true
          *	returns 7
          */
-        public static function rscan(string $bin_name, int $bit_offset, int $bit_size, bool $value, ?array $ctx): \Aerospike\Operation {}
+        public static function rscan(string $bin_name, int $bit_offset, int $bit_size, bool $value, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * BitGetIntOp creates bit "get integer" operation.
@@ -2491,7 +2491,7 @@ namespace Aerospike {
          *	signed = false
          *	returns 16899
          */
-        public static function getInt(string $bin_name, int $bit_offset, int $bit_size, bool $signed, ?array $ctx): \Aerospike\Operation {}
+        public static function getInt(string $bin_name, int $bit_offset, int $bit_size, bool $signed, ?array $ctx): \AerospikeV8\Operation {}
     }
 
     /**
@@ -2501,22 +2501,22 @@ namespace Aerospike {
         /**
          * ICT_DEFAULT is the Normal scalar index.
          */
-        public static function Default(): \Aerospike\IndexCollectionType {}
+        public static function Default(): \AerospikeV8\IndexCollectionType {}
 
         /**
          * ICT_LIST is Index list elements.
          */
-        public static function List(): \Aerospike\IndexCollectionType {}
+        public static function List(): \AerospikeV8\IndexCollectionType {}
 
         /**
          * ICT_MAPKEYS is Index map keys.
          */
-        public static function MapKeys(): \Aerospike\IndexCollectionType {}
+        public static function MapKeys(): \AerospikeV8\IndexCollectionType {}
 
         /**
          * ICT_MAPVALUES is Index map values.
          */
-        public static function MapValues(): \Aerospike\IndexCollectionType {}
+        public static function MapValues(): \AerospikeV8\IndexCollectionType {}
     }
 
     /**
@@ -2538,7 +2538,7 @@ namespace Aerospike {
          * minHashBitCount  number of min hash bits. Must be between 4 and 58 inclusive. Pass -1 for default.
          * indexBitCount + minHashBitCount must be <= 64.
          */
-        public static function init(\Aerospike\HllPolicy $policy, string $bin_name, int $index_bit_count, int $min_hash_bit_count): \Aerospike\Operation {}
+        public static function init(\AerospikeV8\HllPolicy $policy, string $bin_name, int $index_bit_count, int $min_hash_bit_count): \AerospikeV8\Operation {}
 
         /**
          * HLLAddOp creates HLL add operation with minhash bits.
@@ -2552,7 +2552,7 @@ namespace Aerospike {
          * minHashBitCount  number of min hash bits. Must be between 4 and 58 inclusive. Pass -1 for default.
          * indexBitCount + minHashBitCount must be <= 64.
          */
-        public static function add(\Aerospike\HllPolicy $policy, string $bin_name, array $list, int $index_bit_count, int $min_hash_bit_count): \Aerospike\Operation {}
+        public static function add(\AerospikeV8\HllPolicy $policy, string $bin_name, array $list, int $index_bit_count, int $min_hash_bit_count): \AerospikeV8\Operation {}
 
         /**
          * HLLSetUnionOp creates HLL set union operation.
@@ -2563,7 +2563,7 @@ namespace Aerospike {
          * binName			name of bin
          * list				list of HLL objects
          */
-        public static function setUnion(\Aerospike\HllPolicy $policy, string $bin_name, array $list): ?\Aerospike\Operation {}
+        public static function setUnion(\AerospikeV8\HllPolicy $policy, string $bin_name, array $list): ?\AerospikeV8\Operation {}
 
         /**
          * HLLRefreshCountOp creates HLL refresh operation.
@@ -2571,7 +2571,7 @@ namespace Aerospike {
          *
          * binName			name of bin
          */
-        public static function refreshCount(string $bin_name): ?\Aerospike\Operation {}
+        public static function refreshCount(string $bin_name): ?\AerospikeV8\Operation {}
 
         /**
          * HLLFoldOp creates HLL fold operation.
@@ -2582,7 +2582,7 @@ namespace Aerospike {
          * binName			name of bin
          * indexBitCount		number of index bits. Must be between 4 and 16 inclusive.
          */
-        public static function fold(string $bin_name, int $index_bit_count): ?\Aerospike\Operation {}
+        public static function fold(string $bin_name, int $index_bit_count): ?\AerospikeV8\Operation {}
 
         /**
          * HLLGetCountOp creates HLL getCount operation.
@@ -2590,7 +2590,7 @@ namespace Aerospike {
          *
          * binName			name of bin
          */
-        public static function getCount(string $bin_name): ?\Aerospike\Operation {}
+        public static function getCount(string $bin_name): ?\AerospikeV8\Operation {}
 
         /**
          * HLLGetUnionOp creates HLL getUnion operation.
@@ -2600,7 +2600,7 @@ namespace Aerospike {
          * binName			name of bin
          * list				list of HLL objects
          */
-        public static function getUnion(string $bin_name, array $list): ?\Aerospike\Operation {}
+        public static function getUnion(string $bin_name, array $list): ?\AerospikeV8\Operation {}
 
         /**
          * HLLGetUnionCountOp creates HLL getUnionCount operation.
@@ -2610,7 +2610,7 @@ namespace Aerospike {
          * binName			name of bin
          * list				list of HLL objects
          */
-        public static function getUnionCount(string $bin_name, array $list): ?\Aerospike\Operation {}
+        public static function getUnionCount(string $bin_name, array $list): ?\AerospikeV8\Operation {}
 
         /**
          * HLLGetIntersectCountOp creates HLL getIntersectCount operation.
@@ -2620,7 +2620,7 @@ namespace Aerospike {
          * binName			name of bin
          * list				list of HLL objects
          */
-        public static function getIntersectCount(string $bin_name, array $list): ?\Aerospike\Operation {}
+        public static function getIntersectCount(string $bin_name, array $list): ?\AerospikeV8\Operation {}
 
         /**
          * HLLGetSimilarityOp creates HLL getSimilarity operation.
@@ -2629,7 +2629,7 @@ namespace Aerospike {
          * binName			name of bin
          * list				list of HLL objects
          */
-        public static function getSimilarity(string $bin_name, array $list): ?\Aerospike\Operation {}
+        public static function getSimilarity(string $bin_name, array $list): ?\AerospikeV8\Operation {}
 
         /**
          * HLLDescribeOp creates HLL describe operation.
@@ -2638,7 +2638,7 @@ namespace Aerospike {
          *
          * binName			name of bin
          */
-        public static function describe(string $bin_name): \Aerospike\Operation {}
+        public static function describe(string $bin_name): \AerospikeV8\Operation {}
     }
 
     /**
@@ -2669,20 +2669,20 @@ namespace Aerospike {
          * NewPartitionFilterAll creates a partition filter that
          * reads all the partitions.
          */
-        public static function all(): \Aerospike\PartitionFilter {}
+        public static function all(): \AerospikeV8\PartitionFilter {}
 
         /**
          * NewPartitionFilterById creates a partition filter by partition id.
          * Partition id is between 0 - 4095
          */
-        public static function partition(int $id): \Aerospike\PartitionFilter {}
+        public static function partition(int $id): \AerospikeV8\PartitionFilter {}
 
         /**
          * NewPartitionFilterByRange creates a partition filter by partition range.
          * begin partition id is between 0 - 4095
          * count is the number of partitions, in the range of 1 - 4096 inclusive.
          */
-        public static function range(int $begin, int $count): \Aerospike\PartitionFilter {}
+        public static function range(int $begin, int $count): \AerospikeV8\PartitionFilter {}
 
         public function initPartitionStatus() {}
     }
@@ -2694,42 +2694,42 @@ namespace Aerospike {
         /**
          * read bin database operation.
          */
-        public static function get(?string $bin_name): \Aerospike\Operation {}
+        public static function get(?string $bin_name): \AerospikeV8\Operation {}
 
         /**
          * read record header database operation.
          */
-        public static function getHeader(): \Aerospike\Operation {}
+        public static function getHeader(): \AerospikeV8\Operation {}
 
         /**
          * set database operation.
          */
-        public static function put(\Aerospike\Bin $bin): \Aerospike\Operation {}
+        public static function put(\AerospikeV8\Bin $bin): \AerospikeV8\Operation {}
 
         /**
          * string append database operation.
          */
-        public static function append(\Aerospike\Bin $bin): \Aerospike\Operation {}
+        public static function append(\AerospikeV8\Bin $bin): \AerospikeV8\Operation {}
 
         /**
          * string prepend database operation.
          */
-        public static function prepend(\Aerospike\Bin $bin): \Aerospike\Operation {}
+        public static function prepend(\AerospikeV8\Bin $bin): \AerospikeV8\Operation {}
 
         /**
          * integer add database operation.
          */
-        public static function add(\Aerospike\Bin $bin): \Aerospike\Operation {}
+        public static function add(\AerospikeV8\Bin $bin): \AerospikeV8\Operation {}
 
         /**
          * touch record database operation.
          */
-        public static function touch(): \Aerospike\Operation {}
+        public static function touch(): \AerospikeV8\Operation {}
 
         /**
          * delete record database operation.
          */
-        public static function delete(): \Aerospike\Operation {}
+        public static function delete(): \AerospikeV8\Operation {}
     }
 
     /**
@@ -2739,52 +2739,52 @@ namespace Aerospike {
         /**
          * ExpTypeNIL is NIL Expression Type
          */
-        public static function Nil(): \Aerospike\ExpType {}
+        public static function Nil(): \AerospikeV8\ExpType {}
 
         /**
          * ExpTypeBOOL is BOOLEAN Expression Type
          */
-        public static function Bool(): \Aerospike\ExpType {}
+        public static function Bool(): \AerospikeV8\ExpType {}
 
         /**
          * ExpTypeINT is INTEGER Expression Type
          */
-        public static function Int(): \Aerospike\ExpType {}
+        public static function Int(): \AerospikeV8\ExpType {}
 
         /**
          * ExpTypeSTRING is STRING Expression Type
          */
-        public static function String(): \Aerospike\ExpType {}
+        public static function String(): \AerospikeV8\ExpType {}
 
         /**
          * ExpTypeLIST is LIST Expression Type
          */
-        public static function List(): \Aerospike\ExpType {}
+        public static function List(): \AerospikeV8\ExpType {}
 
         /**
          * ExpTypeMAP is MAP Expression Type
          */
-        public static function Map(): \Aerospike\ExpType {}
+        public static function Map(): \AerospikeV8\ExpType {}
 
         /**
          * ExpTypeBLOB is BLOB Expression Type
          */
-        public static function Blob(): \Aerospike\ExpType {}
+        public static function Blob(): \AerospikeV8\ExpType {}
 
         /**
          * ExpTypeFLOAT is FLOAT Expression Type
          */
-        public static function Float(): \Aerospike\ExpType {}
+        public static function Float(): \AerospikeV8\ExpType {}
 
         /**
          * ExpTypeGEO is GEO String Expression Type
          */
-        public static function Geo(): \Aerospike\ExpType {}
+        public static function Geo(): \AerospikeV8\ExpType {}
 
         /**
          * ExpTypeHLL is HLL Expression Type
          */
-        public static function Hll(): \Aerospike\ExpType {}
+        public static function Hll(): \AerospikeV8\ExpType {}
     }
 
     /**
@@ -2883,21 +2883,21 @@ namespace Aerospike {
          *
          * Default: null
          */
-        public function getFilterExpression(): ?\Aerospike\Expression {}
+        public function getFilterExpression(): ?\AerospikeV8\Expression {}
 
         public function setFilterExpression(mixed $filter_expression) {}
 
         /**
          * ReadModeAP indicates read policy for AP (availability) namespaces.
          */
-        public function getReadModeAp(): \Aerospike\ReadModeAP {}
+        public function getReadModeAp(): \AerospikeV8\ReadModeAP {}
 
         public function setReadModeAp(mixed $read_mode_ap) {}
 
         /**
          * ReadModeSC indicates read policy for SC (strong consistency) namespaces.
          */
-        public function getReadModeSc(): \Aerospike\ReadModeSC {}
+        public function getReadModeSc(): \AerospikeV8\ReadModeSC {}
 
         public function setReadModeSc(mixed $read_mode_sc) {}
     }
@@ -2926,13 +2926,13 @@ namespace Aerospike {
          * boundaries only if pad is set to true.  In that case, nil list entries will be inserted to
          * satisfy the context position.
          */
-        public static function create(string $bin_name, mixed $order, bool $pad, ?array $ctx): \Aerospike\Operation {}
+        public static function create(string $bin_name, mixed $order, bool $pad, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListSetOrderOp creates a set list order operation.
          * Server sets list order.  Server returns nil.
          */
-        public static function setOrder(string $bin_name, mixed $order, ?array $ctx): \Aerospike\Operation {}
+        public static function setOrder(string $bin_name, mixed $order, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListAppendOp creates a list append operation.
@@ -2940,7 +2940,7 @@ namespace Aerospike {
          * Server returns list size on bin name.
          * It will panic is no values have been passed.
          */
-        public static function append(\Aerospike\ListPolicy $policy, string $bin_name, array $values, ?array $ctx): \Aerospike\Operation {}
+        public static function append(\AerospikeV8\ListPolicy $policy, string $bin_name, array $values, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListInsertOp creates a list insert operation.
@@ -2948,31 +2948,31 @@ namespace Aerospike {
          * Server returns list size on bin name.
          * It will panic is no values have been passed.
          */
-        public static function insert(\Aerospike\ListPolicy $policy, string $bin_name, int $index, array $values, ?array $ctx): \Aerospike\Operation {}
+        public static function insert(\AerospikeV8\ListPolicy $policy, string $bin_name, int $index, array $values, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListPopOp creates list pop operation.
          * Server returns item at specified index and removes item from list bin.
          */
-        public static function pop(string $bin_name, int $index, ?array $ctx): \Aerospike\Operation {}
+        public static function pop(string $bin_name, int $index, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListPopRangeOp creates a list pop range operation.
          * Server returns items starting at specified index and removes items from list bin.
          */
-        public static function popRange(string $bin_name, int $index, int $count, ?array $ctx): \Aerospike\Operation {}
+        public static function popRange(string $bin_name, int $index, int $count, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListPopRangeFromOp creates a list pop range operation.
          * Server returns items starting at specified index to the end of list and removes items from list bin.
          */
-        public static function popRangeFrom(string $bin_name, int $index, ?array $ctx): \Aerospike\Operation {}
+        public static function popRangeFrom(string $bin_name, int $index, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveByValueOp creates list remove by value operation.
          * Server removes the item identified by value and returns removed data specified by returnType.
          */
-        public static function removeValues(string $bin_name, array $values, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeValues(string $bin_name, array $values, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveByValueRangeOp creates a list remove operation.
@@ -2981,7 +2981,7 @@ namespace Aerospike {
          * If valueEnd is nil, the range is greater than equal to valueBegin.
          * Server returns removed data specified by returnType
          */
-        public static function removeByValueRange(string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByValueRange(string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveByValueRelativeRankRangeOp creates a list remove by value relative to rank range operation.
@@ -2998,7 +2998,7 @@ namespace Aerospike {
          *	(3,3) = [11,15]
          *	(3,-3) = [0,4,5,9,11,15]
          */
-        public static function removeByValueRelativeRankRange(string $bin_name, mixed $value, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByValueRelativeRankRange(string $bin_name, mixed $value, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveByValueRelativeRankRangeCountOp creates a list remove by value relative to rank range operation.
@@ -3014,28 +3014,28 @@ namespace Aerospike {
          *	(3,3,7) = [11,15]
          *	(3,-3,2) = []
          */
-        public static function removeByValueRelativeRankRangeCount(string $bin_name, mixed $value, int $rank, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByValueRelativeRankRangeCount(string $bin_name, mixed $value, int $rank, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveRangeOp creates a list remove range operation.
          * Server removes "count" items starting at specified index from list bin.
          * Server returns number of items removed.
          */
-        public static function removeRange(string $bin_name, int $index, int $count, ?array $ctx): \Aerospike\Operation {}
+        public static function removeRange(string $bin_name, int $index, int $count, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveRangeFromOp creates a list remove range operation.
          * Server removes all items starting at specified index to the end of list.
          * Server returns number of items removed.
          */
-        public static function removeRangeFrom(string $bin_name, int $index, ?array $ctx): \Aerospike\Operation {}
+        public static function removeRangeFrom(string $bin_name, int $index, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListSetOp creates a list set operation.
          * Server sets item value at specified index in list bin.
          * Server does not return a result by default.
          */
-        public static function set(string $bin_name, int $index, mixed $value, ?array $ctx): \Aerospike\Operation {}
+        public static function set(string $bin_name, int $index, mixed $value, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListTrimOp creates a list trim operation.
@@ -3043,14 +3043,14 @@ namespace Aerospike {
          * and count range. If the range is out of bounds, then all items will be removed.
          * Server returns number of elements that were removed.
          */
-        public static function trim(string $bin_name, int $index, int $count, ?array $ctx): \Aerospike\Operation {}
+        public static function trim(string $bin_name, int $index, int $count, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListClearOp creates a list clear operation.
          * Server removes all items in list bin.
          * Server does not return a result by default.
          */
-        public static function clear(string $bin_name, ?array $ctx): \Aerospike\Operation {}
+        public static function clear(string $bin_name, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListIncrementOp creates a list increment operation.
@@ -3058,64 +3058,64 @@ namespace Aerospike {
          * Value should be integer(IntegerValue, LongValue) or float(FloatValue).
          * Server returns list[index] after incrementing.
          */
-        public static function increment(string $bin_name, int $index, mixed $value, ?array $ctx): \Aerospike\Operation {}
+        public static function increment(string $bin_name, int $index, mixed $value, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListSizeOp creates a list size operation.
          * Server returns size of list on bin name.
          */
-        public static function size(string $bin_name, ?array $ctx): \Aerospike\Operation {}
+        public static function size(string $bin_name, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListSortOp creates list sort operation.
          * Server sorts list according to sortFlags.
          * Server does not return a result by default.
          */
-        public static function sort(string $bin_name, \Aerospike\ListSortFlags $sort_flags, ?array $ctx): \Aerospike\Operation {}
+        public static function sort(string $bin_name, \AerospikeV8\ListSortFlags $sort_flags, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveByIndexOp creates a list remove operation.
          * Server removes list item identified by index and returns removed data specified by returnType.
          */
-        public static function removeByIndex(string $bin_name, int $index, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByIndex(string $bin_name, int $index, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveByIndexRangeOp creates a list remove operation.
          * Server removes list items starting at specified index to the end of list and returns removed
          * data specified by returnType.
          */
-        public static function removeByIndexRange(string $bin_name, int $index, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByIndexRange(string $bin_name, int $index, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveByIndexRangeCountOp creates a list remove operation.
          * Server removes "count" list items starting at specified index and returns removed data specified by returnType.
          */
-        public static function removeByIndexRangeCount(string $bin_name, int $index, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByIndexRangeCount(string $bin_name, int $index, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveByRankOp creates a list remove operation.
          * Server removes list item identified by rank and returns removed data specified by returnType.
          */
-        public static function removeByRank(string $bin_name, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByRank(string $bin_name, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveByRankRangeOp creates a list remove operation.
          * Server removes list items starting at specified rank to the last ranked item and returns removed
          * data specified by returnType.
          */
-        public static function removeByRankRange(string $bin_name, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByRankRange(string $bin_name, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListRemoveByRankRangeCountOp creates a list remove operation.
          * Server removes "count" list items starting at specified rank and returns removed data specified by returnType.
          */
-        public static function removeByRankRangeCount(string $bin_name, int $rank, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByRankRangeCount(string $bin_name, int $rank, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListGetByValueOp creates a list get by value operation.
          * Server selects list items identified by value and returns selected data specified by returnType.
          */
-        public static function getByValues(string $bin_name, array $values, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByValues(string $bin_name, array $values, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListGetByValueRangeOp creates a list get by value range operation.
@@ -3124,46 +3124,46 @@ namespace Aerospike {
          * If valueEnd is nil, the range is greater than equal to valueBegin.
          * Server returns selected data specified by returnType.
          */
-        public static function getByValueRange(string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByValueRange(string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListGetByIndexOp creates list get by index operation.
          * Server selects list item identified by index and returns selected data specified by returnType
          */
-        public static function getByIndex(string $bin_name, int $index, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByIndex(string $bin_name, int $index, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListGetByIndexRangeOp creates list get by index range operation.
          * Server selects list items starting at specified index to the end of list and returns selected
          * data specified by returnType.
          */
-        public static function getByIndexRange(string $bin_name, int $index, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByIndexRange(string $bin_name, int $index, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListGetByIndexRangeCountOp creates list get by index range operation.
          * Server selects "count" list items starting at specified index and returns selected data specified
          * by returnType.
          */
-        public static function getByIndexRangeCount(string $bin_name, int $index, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByIndexRangeCount(string $bin_name, int $index, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListGetByRankOp creates a list get by rank operation.
          * Server selects list item identified by rank and returns selected data specified by returnType.
          */
-        public static function getByRank(string $bin_name, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByRank(string $bin_name, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListGetByRankRangeOp creates a list get by rank range operation.
          * Server selects list items starting at specified rank to the last ranked item and returns selected
          * data specified by returnType
          */
-        public static function getByRankRange(string $bin_name, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByRankRange(string $bin_name, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListGetByRankRangeCountOp creates a list get by rank range operation.
          * Server selects "count" list items starting at specified rank and returns selected data specified by returnType.
          */
-        public static function getByRankRangeCount(string $bin_name, int $rank, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByRankRangeCount(string $bin_name, int $rank, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListGetByValueRelativeRankRangeOp creates a list get by value relative to rank range operation.
@@ -3180,7 +3180,7 @@ namespace Aerospike {
          *	(3,3) = [11,15]
          *	(3,-3) = [0,4,5,9,11,15]
          */
-        public static function getByValueRelativeRankRange(string $bin_name, mixed $value, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByValueRelativeRankRange(string $bin_name, mixed $value, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * ListGetByValueRelativeRankRangeCountOp creates a list get by value relative to rank range operation.
@@ -3197,7 +3197,7 @@ namespace Aerospike {
          *	(3,3,7) = [11,15]
          *	(3,-3,2) = []
          */
-        public static function getByValueRelativeRankRangeCount(string $bin_name, mixed $value, int $rank, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByValueRelativeRankRangeCount(string $bin_name, mixed $value, int $rank, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
     }
 
     /**
@@ -3207,24 +3207,24 @@ namespace Aerospike {
         /**
          * Set the record to expire X seconds from now
          */
-        public static function Seconds(int $seconds): \Aerospike\Expiration {}
+        public static function Seconds(int $seconds): \AerospikeV8\Expiration {}
 
         /**
          * Set the record's expiry time using the default time-to-live (TTL) value for the namespace
          */
-        public static function NamespaceDefault(): \Aerospike\Expiration {}
+        public static function NamespaceDefault(): \AerospikeV8\Expiration {}
 
         /**
          * Set the record to never expire. Requires Aerospike 2 server version 2.7.2 or later or
          * Aerospike 3 server version 3.1.4 or later. Do not use with older servers.
          */
-        public static function Never(): \Aerospike\Expiration {}
+        public static function Never(): \AerospikeV8\Expiration {}
 
         /**
          * Do not change the record's expiry time when updating the record; requires Aerospike server
          * version 3.10.1 or later.
          */
-        public static function DontUpdate(): \Aerospike\Expiration {}
+        public static function DontUpdate(): \AerospikeV8\Expiration {}
     }
 
     /**
@@ -3273,7 +3273,7 @@ namespace Aerospike {
          * MapCreateOp creates a map create operation.
          * Server creates map at given context level.
          */
-        public static function create(string $bin_name, \Aerospike\MapOrderType $order, ?bool $with_index, ?array $ctx): \Aerospike\Operation {}
+        public static function create(string $bin_name, \AerospikeV8\MapOrderType $order, ?bool $with_index, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapSetPolicyOp creates set map policy operation.
@@ -3281,13 +3281,13 @@ namespace Aerospike {
          *
          * The required map policy attributes can be changed after the map is created.
          */
-        public static function setPolicy(\Aerospike\MapPolicy $policy, string $bin_name, ?array $ctx): \Aerospike\Operation {}
+        public static function setPolicy(\AerospikeV8\MapPolicy $policy, string $bin_name, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapSizeOp creates map size operation.
          * Server returns size of map.
          */
-        public static function size(string $bin_name, ?array $ctx): \Aerospike\Operation {}
+        public static function size(string $bin_name, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapPutOp creates map put operation.
@@ -3296,7 +3296,7 @@ namespace Aerospike {
          * The required map policy dictates the type of map to create when it does not exist.
          * The map policy also specifies the mode used when writing items to the map.
          */
-        public static function put(\Aerospike\MapPolicy $policy, string $bin_name, mixed $map, ?array $ctx): ?\Aerospike\Operation {}
+        public static function put(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $map, ?array $ctx): ?\AerospikeV8\Operation {}
 
         /**
          * MapIncrementOp creates map increment operation.
@@ -3306,7 +3306,7 @@ namespace Aerospike {
          * The required map policy dictates the type of map to create when it does not exist.
          * The map policy also specifies the mode used when writing items to the map.
          */
-        public static function increment(\Aerospike\MapPolicy $policy, string $bin_name, mixed $key, mixed $incr, ?array $ctx): \Aerospike\Operation {}
+        public static function increment(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $key, mixed $incr, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapDecrementOp creates map decrement operation.
@@ -3316,19 +3316,19 @@ namespace Aerospike {
          * The required map policy dictates the type of map to create when it does not exist.
          * The map policy also specifies the mode used when writing items to the map.
          */
-        public static function decrement(\Aerospike\MapPolicy $policy, string $bin_name, mixed $key, mixed $decr, ?array $ctx): \Aerospike\Operation {}
+        public static function decrement(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $key, mixed $decr, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapClearOp creates map clear operation.
          * Server removes all items in map.  Server returns nil.
          */
-        public static function clear(string $bin_name, ?array $ctx): \Aerospike\Operation {}
+        public static function clear(string $bin_name, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByKeyOp creates map remove operation.
          * Server removes map item identified by key and returns removed data specified by returnType.
          */
-        public static function removeByKeys(string $bin_name, array $keys, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByKeys(string $bin_name, array $keys, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByKeyRangeOp creates map remove operation.
@@ -3338,19 +3338,19 @@ namespace Aerospike {
          *
          * Server returns removed data specified by returnType.
          */
-        public static function removeByKeyRange(\Aerospike\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByKeyRange(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByValueOp creates map remove operation.
          * Server removes map items identified by value and returns removed data specified by returnType.
          */
-        public static function removeByValues(\Aerospike\MapPolicy $policy, string $bin_name, array $values, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByValues(\AerospikeV8\MapPolicy $policy, string $bin_name, array $values, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByValueListOp creates map remove operation.
          * Server removes map items identified by values and returns removed data specified by returnType.
          */
-        public static function removeByValueRange(\Aerospike\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByValueRange(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByValueRelativeRankRangeOp creates a map remove by value relative to rank range operation.
@@ -3363,7 +3363,7 @@ namespace Aerospike {
          *	(11,1) = [{0=17}]
          *	(11,-1) = [{9=10},{5=15},{0=17}]
          */
-        public static function removeByValueRelativeRankRange(\Aerospike\MapPolicy $policy, string $bin_name, mixed $value, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByValueRelativeRankRange(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $value, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByValueRelativeRankRangeCountOp creates a map remove by value relative to rank range operation.
@@ -3376,45 +3376,45 @@ namespace Aerospike {
          *	(11,1,1) = [{0=17}]
          *	(11,-1,1) = [{9=10}]
          */
-        public static function removeByValueRelativeRankRangeCount(\Aerospike\MapPolicy $policy, string $bin_name, mixed $value, int $rank, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByValueRelativeRankRangeCount(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $value, int $rank, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByIndexOp creates map remove operation.
          * Server removes map item identified by index and returns removed data specified by returnType.
          */
-        public static function removeByIndex(\Aerospike\MapPolicy $policy, string $bin_name, int $index, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByIndex(\AerospikeV8\MapPolicy $policy, string $bin_name, int $index, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByIndexRangeOp creates map remove operation.
          * Server removes map items starting at specified index to the end of map and returns removed
          * data specified by returnTyp
          */
-        public static function removeByIndexRange(\Aerospike\MapPolicy $policy, string $bin_name, int $index, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByIndexRange(\AerospikeV8\MapPolicy $policy, string $bin_name, int $index, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByIndexRangeCountOp creates map remove operation.
          * Server removes "count" map items starting at specified index and returns removed data specified by returnType.
          */
-        public static function removeByIndexRangeCount(\Aerospike\MapPolicy $policy, string $bin_name, int $index, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByIndexRangeCount(\AerospikeV8\MapPolicy $policy, string $bin_name, int $index, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByRankOp creates map remove operation.
          * Server removes map item identified by rank and returns removed data specified by returnType.
          */
-        public static function removeByRank(\Aerospike\MapPolicy $policy, string $bin_name, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByRank(\AerospikeV8\MapPolicy $policy, string $bin_name, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByRankRangeOp creates map remove operation.
          * Server removes map items starting at specified rank to the last ranked item and returns removed
          * data specified by returnType.
          */
-        public static function removeByRankRange(\Aerospike\MapPolicy $policy, string $bin_name, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByRankRange(\AerospikeV8\MapPolicy $policy, string $bin_name, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByRankRangeCountOp creates map remove operation.
          * Server removes "count" map items starting at specified rank and returns removed data specified by returnType.
          */
-        public static function removeByRankRangeCount(\Aerospike\MapPolicy $policy, string $bin_name, int $rank, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByRankRangeCount(\AerospikeV8\MapPolicy $policy, string $bin_name, int $rank, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByKeyRelativeIndexRangeOp creates a map remove by key relative to index range operation.
@@ -3430,7 +3430,7 @@ namespace Aerospike {
          *	(3,2) = [{9=10}]
          *	(3,-2) = [{0=17},{4=2},{5=15},{9=10}]
          */
-        public static function removeByKeyRelativeIndexRange(\Aerospike\MapPolicy $policy, string $bin_name, mixed $key, int $index, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByKeyRelativeIndexRange(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $key, int $index, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapRemoveByKeyRelativeIndexRangeCountOp creates map remove by key relative to index range operation.
@@ -3446,14 +3446,14 @@ namespace Aerospike {
          *	(3,2,1) = [{9=10}]
          *	(3,-2,2) = [{0=17}]
          */
-        public static function removeByKeyRelativeIndexRangeCount(\Aerospike\MapPolicy $policy, string $bin_name, mixed $key, int $index, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function removeByKeyRelativeIndexRangeCount(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $key, int $index, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByKeyOp creates map get by key operation.
          * Server selects map item identified by key and returns selected data specified by returnType.
          * Should be used with BatchRead.
          */
-        public static function getByKeys(\Aerospike\MapPolicy $policy, string $bin_name, array $keys, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByKeys(\AerospikeV8\MapPolicy $policy, string $bin_name, array $keys, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByKeyRangeOp creates map get by key range operation.
@@ -3464,7 +3464,7 @@ namespace Aerospike {
          * Server returns selected data specified by returnType.
          * Should be used with BatchRead.
          */
-        public static function getByKeyRange(\Aerospike\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByKeyRange(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByKeyRelativeIndexRangeOp creates a map get by key relative to index range operation.
@@ -3481,7 +3481,7 @@ namespace Aerospike {
          *	(3,-2) = [{0=17},{4=2},{5=15},{9=10}]
          * Should be used with BatchRead.
          */
-        public static function getByKeyRelativeIndexRange(\Aerospike\MapPolicy $policy, string $bin_name, mixed $key, int $index, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByKeyRelativeIndexRange(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $key, int $index, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByKeyRelativeIndexRangeCountOp creates a map get by key relative to index range operation.
@@ -3498,14 +3498,14 @@ namespace Aerospike {
          *	(3,-2,2) = [{0=17}]
          * Should be used with BatchRead.
          */
-        public static function getByKeyRelativeIndexRangeCount(\Aerospike\MapPolicy $policy, string $bin_name, mixed $key, int $index, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByKeyRelativeIndexRangeCount(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $key, int $index, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByKeyListOp creates a map get by key list operation.
          * Server selects map items identified by keys and returns selected data specified by returnType.
          * Should be used with BatchRead.
          */
-        public static function getByValues(\Aerospike\MapPolicy $policy, string $bin_name, array $values, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByValues(\AerospikeV8\MapPolicy $policy, string $bin_name, array $values, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByValueRangeOp creates map get by value range operation.
@@ -3516,7 +3516,7 @@ namespace Aerospike {
          * Server returns selected data specified by returnType.
          * Should be used with BatchRead.
          */
-        public static function getByValueRange(\Aerospike\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByValueRange(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByValueRelativeRankRangeOp creates a map get by value relative to rank range operation.
@@ -3530,7 +3530,7 @@ namespace Aerospike {
          *	(11,-1) = [{9=10},{5=15},{0=17}]
          * Should be used with BatchRead.
          */
-        public static function getByValueRelativeRankRange(\Aerospike\MapPolicy $policy, string $bin_name, mixed $value, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByValueRelativeRankRange(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $value, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByValueRelativeRankRangeCountOp creates a map get by value relative to rank range operation.
@@ -3544,14 +3544,14 @@ namespace Aerospike {
          *	(11,-1,1) = [{9=10}]
          * Should be used with BatchRead.
          */
-        public static function getByValueRelativeRankRangeCount(\Aerospike\MapPolicy $policy, string $bin_name, mixed $value, int $rank, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByValueRelativeRankRangeCount(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $value, int $rank, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByIndexOp creates map get by index operation.
          * Server selects map item identified by index and returns selected data specified by returnType.
          * Should be used with BatchRead.
          */
-        public static function getByIndex(\Aerospike\MapPolicy $policy, string $bin_name, int $index, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByIndex(\AerospikeV8\MapPolicy $policy, string $bin_name, int $index, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByIndexRangeOp creates map get by index range operation.
@@ -3559,21 +3559,21 @@ namespace Aerospike {
          * data specified by returnType.
          * Should be used with BatchRead.
          */
-        public static function getByIndexRange(\Aerospike\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByIndexRange(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByIndexRangeCountOp creates map get by index range operation.
          * Server selects "count" map items starting at specified index and returns selected data specified by returnType.
          * Should be used with BatchRead.
          */
-        public static function getByIndexRangeCount(\Aerospike\MapPolicy $policy, string $bin_name, int $index, int $rank, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByIndexRangeCount(\AerospikeV8\MapPolicy $policy, string $bin_name, int $index, int $rank, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByRankOp creates map get by rank operation.
          * Server selects map item identified by rank and returns selected data specified by returnType.
          * Should be used with BatchRead.
          */
-        public static function getByRank(\Aerospike\MapPolicy $policy, string $bin_name, int $rank, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByRank(\AerospikeV8\MapPolicy $policy, string $bin_name, int $rank, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByRankRangeOp creates map get by rank range operation.
@@ -3581,14 +3581,14 @@ namespace Aerospike {
          * data specified by returnType.
          * Should be used with BatchRead.
          */
-        public static function getByRankRange(\Aerospike\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByRankRange(\AerospikeV8\MapPolicy $policy, string $bin_name, mixed $begin, mixed $end, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
 
         /**
          * MapGetByRankRangeCountOp creates map get by rank range operation.
          * Server selects "count" map items starting at specified rank and returns selected data specified by returnType.
          * Should be used with BatchRead.
          */
-        public static function getByRankRangeCount(\Aerospike\MapPolicy $policy, string $bin_name, int $rank, int $range, int $count, mixed $return_type, ?array $ctx): \Aerospike\Operation {}
+        public static function getByRankRangeCount(\AerospikeV8\MapPolicy $policy, string $bin_name, int $rank, int $range, int $count, mixed $return_type, ?array $ctx): \AerospikeV8\Operation {}
     }
 
     /**
@@ -3611,13 +3611,13 @@ namespace Aerospike {
         /**
          * Key.
          */
-        public function getKey(): ?\Aerospike\Key {}
+        public function getKey(): ?\AerospikeV8\Key {}
 
         /**
          * Record result after batch command has completed.  Will be nil if record was not found
          * or an error occurred. See ResultCode.
          */
-        public function getRecord(): ?\Aerospike\Record {}
+        public function getRecord(): ?\AerospikeV8\Record {}
     }
 
     /**
@@ -3642,7 +3642,7 @@ namespace Aerospike {
         /**
          * Records is a channel on which the resulting records will be sent back.
          */
-        public function next(): ?\Aerospike\Record {}
+        public function next(): ?\AerospikeV8\Record {}
     }
 
     /**
@@ -3652,7 +3652,7 @@ namespace Aerospike {
         /**
          * lua language.
          */
-        public static function Lua(): \Aerospike\UdfLanguage {}
+        public static function Lua(): \AerospikeV8\UdfLanguage {}
     }
 
     /**
@@ -3662,32 +3662,32 @@ namespace Aerospike {
         /**
          * BitWriteFlagsDefault allows create or update.
          */
-        public static function Default(): \Aerospike\BitwiseWriteFlags {}
+        public static function Default(): \AerospikeV8\BitwiseWriteFlags {}
 
         /**
          * BitWriteFlagsCreateOnly specifies that:
          * If the bin already exists, the operation will be denied.
          * If the bin does not exist, a new bin will be created.
          */
-        public static function CreateOnly(): \Aerospike\BitwiseWriteFlags {}
+        public static function CreateOnly(): \AerospikeV8\BitwiseWriteFlags {}
 
         /**
          * BitWriteFlagsUpdateOnly specifies that:
          * If the bin already exists, the bin will be overwritten.
          * If the bin does not exist, the operation will be denied.
          */
-        public static function UpdateOnly(): \Aerospike\BitwiseWriteFlags {}
+        public static function UpdateOnly(): \AerospikeV8\BitwiseWriteFlags {}
 
         /**
          * BitWriteFlagsNoFail specifies not to raise error if operation is denied.
          */
-        public static function NoFail(): \Aerospike\BitwiseWriteFlags {}
+        public static function NoFail(): \AerospikeV8\BitwiseWriteFlags {}
 
         /**
          * BitWriteFlagsPartial allows other valid operations to be committed if this operations is
          * denied due to flag constraints.
          */
-        public static function Partial(): \Aerospike\BitwiseWriteFlags {}
+        public static function Partial(): \AerospikeV8\BitwiseWriteFlags {}
     }
 
     /**
@@ -3785,14 +3785,14 @@ namespace Aerospike {
          *
          * Default: nil
          */
-        public function getFilterExpression(): ?\Aerospike\Expression {}
+        public function getFilterExpression(): ?\AerospikeV8\Expression {}
 
         public function setFilterExpression(mixed $filter_expression) {}
 
         /**
          * RecordExistsAction qualifies how to handle writes where the record already exists.
          */
-        public function getRecordExistsAction(): \Aerospike\RecordExistsAction {}
+        public function getRecordExistsAction(): \AerospikeV8\RecordExistsAction {}
 
         public function setRecordExistsAction(mixed $record_exists_action) {}
 
@@ -3803,7 +3803,7 @@ namespace Aerospike {
          *
          * Default: CommitLevel.COMMIT_ALL
          */
-        public function getGenerationPolicy(): \Aerospike\GenerationPolicy {}
+        public function getGenerationPolicy(): \AerospikeV8\GenerationPolicy {}
 
         public function setGenerationPolicy(mixed $generation_policy) {}
 
@@ -3817,7 +3817,7 @@ namespace Aerospike {
          * Default: GenerationPolicy.NONE
          * indicates that the generation is not used to restrict writes.
          */
-        public function getCommitLevel(): \Aerospike\CommitLevel {}
+        public function getCommitLevel(): \AerospikeV8\CommitLevel {}
 
         public function setCommitLevel(mixed $commit_level) {}
 
@@ -3845,7 +3845,7 @@ namespace Aerospike {
          * TTLDontUpdate (MaxUint32 - 1): Do not change ttl when record is written. Supported by Aerospike server versions >= 3.10.1
          * > 0: Actual expiration in seconds.
          */
-        public function getExpiration(): \Aerospike\Expiration {}
+        public function getExpiration(): \AerospikeV8\Expiration {}
 
         public function setExpiration(mixed $expiration) {}
 
@@ -3963,7 +3963,7 @@ namespace Aerospike {
      * BatchWrite encapsulates a batch key and read/write operations with write policy.
      */
     class BatchWrite {
-        public function __construct(\Aerospike\BatchWritePolicy $policy, \Aerospike\Key $key, array $ops) {}
+        public function __construct(\AerospikeV8\BatchWritePolicy $policy, \AerospikeV8\Key $key, array $ops) {}
     }
 
     /**
@@ -3973,33 +3973,33 @@ namespace Aerospike {
         /**
          * HLLWriteFlagsDefault is Default. Allow create or update.
          */
-        public static function Default(): \Aerospike\HllWriteFlags {}
+        public static function Default(): \AerospikeV8\HllWriteFlags {}
 
         /**
          * HLLWriteFlagsCreateOnly behaves like the following:
          * If the bin already exists, the operation will be denied.
          * If the bin does not exist, a new bin will be created.
          */
-        public static function CreateOnly(): \Aerospike\HllWriteFlags {}
+        public static function CreateOnly(): \AerospikeV8\HllWriteFlags {}
 
         /**
          * HLLWriteFlagsUpdateOnly behaves like the following:
          * If the bin already exists, the bin will be overwritten.
          * If the bin does not exist, the operation will be denied.
          */
-        public static function UpdateOnly(): \Aerospike\HllWriteFlags {}
+        public static function UpdateOnly(): \AerospikeV8\HllWriteFlags {}
 
         /**
          * HLLWriteFlagsNoFail does not raise error if operation is denied.
          */
-        public static function NoFail(): \Aerospike\HllWriteFlags {}
+        public static function NoFail(): \AerospikeV8\HllWriteFlags {}
 
         /**
          * HLLWriteFlagsAllowFold allows the resulting set to be the minimum of provided index bits.
          * Also, allow the usage of less precise HLL algorithms when minHash bits
          * of all participating sets do not match.
          */
-        public static function AllowFold(): \Aerospike\HllWriteFlags {}
+        public static function AllowFold(): \AerospikeV8\HllWriteFlags {}
     }
 
     /**
@@ -4024,7 +4024,7 @@ namespace Aerospike {
          *
          * Default: nil
          */
-        public function getFilterExpression(): ?\Aerospike\Expression {}
+        public function getFilterExpression(): ?\AerospikeV8\Expression {}
 
         public function setFilterExpression(mixed $filter_expression) {}
 
@@ -4035,7 +4035,7 @@ namespace Aerospike {
          *
          * Default: CommitLevel.COMMIT_ALL
          */
-        public function getCommitLevel(): \Aerospike\CommitLevel {}
+        public function getCommitLevel(): \AerospikeV8\CommitLevel {}
 
         public function setCommitLevel(mixed $commit_level) {}
 
@@ -4048,7 +4048,7 @@ namespace Aerospike {
          * TTLDontUpdate (MaxUint32 - 1): Do not change ttl when record is written. Supported by Aerospike server versions >= 3.10.1
          * > 0: Actual expiration in seconds.
          */
-        public function getExpiration(): \Aerospike\Expiration {}
+        public function getExpiration(): \AerospikeV8\Expiration {}
 
         public function setExpiration(mixed $expiration) {}
 
@@ -4119,17 +4119,17 @@ namespace Aerospike {
         /**
          * ListSortFlagsDefault is the default sort flag for CDT lists, and sort in Ascending order.
          */
-        public static function Default(): \Aerospike\ListSortFlags {}
+        public static function Default(): \AerospikeV8\ListSortFlags {}
 
         /**
          * ListSortFlagsDescending will sort the contents of the list in descending order.
          */
-        public static function Descending(): \Aerospike\ListSortFlags {}
+        public static function Descending(): \AerospikeV8\ListSortFlags {}
 
         /**
          * ListSortFlagsDropDuplicates will drop duplicate values in the results of the CDT list operation.
          */
-        public static function DropDuplicates(): \Aerospike\ListSortFlags {}
+        public static function DropDuplicates(): \AerospikeV8\ListSortFlags {}
     }
 
     /**
@@ -4145,17 +4145,17 @@ namespace Aerospike {
         /**
          * Map is not ordered. This is the default.
          */
-        public static function Unordered(): \Aerospike\MapOrderType {}
+        public static function Unordered(): \AerospikeV8\MapOrderType {}
 
         /**
          * Order map by key.
          */
-        public static function KeyOrdered(): \Aerospike\MapOrderType {}
+        public static function KeyOrdered(): \AerospikeV8\MapOrderType {}
 
         /**
          * Order map by key, then value.
          */
-        public static function KeyValueOrdered(): \Aerospike\MapOrderType {}
+        public static function KeyValueOrdered(): \AerospikeV8\MapOrderType {}
     }
 
     /**
@@ -4167,19 +4167,19 @@ namespace Aerospike {
          * If the key already exists, the item will be overwritten.
          * If the key does not exist, a new item will be created.
          */
-        public static function Update(): \Aerospike\MapWriteMode {}
+        public static function Update(): \AerospikeV8\MapWriteMode {}
 
         /**
          * If the key already exists, the item will be overwritten.
          * If the key does not exist, the write will fail.
          */
-        public static function UpdateOnly(): \Aerospike\MapWriteMode {}
+        public static function UpdateOnly(): \AerospikeV8\MapWriteMode {}
 
         /**
          * If the key already exists, the write will fail.
          * If the key does not exist, a new item will be created.
          */
-        public static function CreateOnly(): \Aerospike\MapWriteMode {}
+        public static function CreateOnly(): \AerospikeV8\MapWriteMode {}
     }
 
     /**
@@ -4203,7 +4203,7 @@ namespace Aerospike {
          * This filter is applied to the secondary index on query.
          * Query index filters must reference a bin which has a secondary index defined.
          */
-        public function getFilter(): ?\Aerospike\Filter {}
+        public function getFilter(): ?\AerospikeV8\Filter {}
 
         public function setFilter(mixed $filter) {}
 
@@ -4273,7 +4273,7 @@ namespace Aerospike {
          * Expiration is TTL (Time-To-Live).
          * Number of seconds until record expires.
          */
-        public function getExpiration(): \Aerospike\Expiration {}
+        public function getExpiration(): \AerospikeV8\Expiration {}
 
         /**
          * Expiration is TTL (Time-To-Live).
@@ -4285,7 +4285,7 @@ namespace Aerospike {
          * Key is the record's key.
          * Might be empty, or may only consist of digest value.
          */
-        public function getKey(): ?\Aerospike\Key {}
+        public function getKey(): ?\AerospikeV8\Key {}
     }
 
     /**
@@ -4295,19 +4295,19 @@ namespace Aerospike {
         /**
          * BitOverflowActionFail specifies to fail operation with error.
          */
-        public static function Fail(): \Aerospike\BitwiseOverflowAction {}
+        public static function Fail(): \AerospikeV8\BitwiseOverflowAction {}
 
         /**
          * BitOverflowActionSaturate specifies that in add/subtract overflows/underflows, set to max/min value.
          * Example: MAXINT + 1 = MAXINT
          */
-        public static function Saturate(): \Aerospike\BitwiseOverflowAction {}
+        public static function Saturate(): \AerospikeV8\BitwiseOverflowAction {}
 
         /**
          * BitOverflowActionWrap specifies that in add/subtract overflows/underflows, wrap the value.
          * Example: MAXINT + 1 = -1
          */
-        public static function Wrap(): \Aerospike\BitwiseOverflowAction {}
+        public static function Wrap(): \AerospikeV8\BitwiseOverflowAction {}
     }
 
     /**
@@ -4791,28 +4791,28 @@ namespace Aerospike {
         /**
          * ListWriteFlagsDefault is the default behavior. It means:  Allow duplicate values and insertions at any index.
          */
-        public static function Default(): \Aerospike\ListWriteFlags {}
+        public static function Default(): \AerospikeV8\ListWriteFlags {}
 
         /**
          * ListWriteFlagsAddUnique means: Only add unique values.
          */
-        public static function AddUnique(): \Aerospike\ListWriteFlags {}
+        public static function AddUnique(): \AerospikeV8\ListWriteFlags {}
 
         /**
          * ListWriteFlagsInsertBounded means: Enforce list boundaries when inserting.  Do not allow values to be inserted
          * at index outside current list boundaries.
          */
-        public static function InsertBounded(): \Aerospike\ListWriteFlags {}
+        public static function InsertBounded(): \AerospikeV8\ListWriteFlags {}
 
         /**
          * ListWriteFlagsNoFail means: do not raise error if a list item fails due to write flag constraints.
          */
-        public static function NoFail(): \Aerospike\ListWriteFlags {}
+        public static function NoFail(): \AerospikeV8\ListWriteFlags {}
 
         /**
          * ListWriteFlagsPartial means: allow other valid list items to be committed if a list item fails due to
          * write flag constraints.
          */
-        public static function Partial(): \Aerospike\ListWriteFlags {}
+        public static function Partial(): \AerospikeV8\ListWriteFlags {}
     }
 }

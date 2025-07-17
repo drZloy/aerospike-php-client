@@ -75,7 +75,7 @@ const CITRUSLEAF_EPOCH: u64 = 1262304000;
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// ExpType defines the expression's data type.
-#[php_class(name = "Aerospike\\ExpType")]
+#[php_class(name = "AerospikeV8\\ExpType")]
 pub struct ExpType {
     _as: proto::ExpType,
 }
@@ -189,7 +189,7 @@ impl From<ExpType> for i32 {
 
 /// Filter expression, which can be applied to most commands, to control which records are
 /// affected by the command.
-#[php_class(name = "Aerospike\\Expression")]
+#[php_class(name = "AerospikeV8\\Expression")]
 pub struct Expression {
     _as: proto::Expression,
 }
@@ -1146,7 +1146,7 @@ impl Expression {
 /// ReadModeAP is the read policy in AP (availability) mode namespaces.
 /// It indicates how duplicates should be consulted in a read operation.
 /// Only makes a difference during migrations and only applicable in AP mode.
-#[php_class(name = "Aerospike\\ReadModeAP")]
+#[php_class(name = "AerospikeV8\\ReadModeAP")]
 pub struct ReadModeAP {
     _as: proto::ReadModeAp,
 }
@@ -1211,7 +1211,7 @@ impl FromZval<'_> for ReadModeAP {
 
 /// ReadModeSC is the read policy in SC (strong consistency) mode namespaces.
 /// Determines SC read consistency options.
-#[php_class(name = "Aerospike\\ReadModeSC")]
+#[php_class(name = "AerospikeV8\\ReadModeSC")]
 pub struct ReadModeSC {
     _as: proto::ReadModeSc,
 }
@@ -1301,7 +1301,7 @@ impl FromZval<'_> for ReadModeSC {
 
 /// RecordExistsAction determines how to handle writes when
 /// the record already exists.
-#[php_class(name = "Aerospike\\RecordExistsAction")]
+#[php_class(name = "AerospikeV8\\RecordExistsAction")]
 pub struct RecordExistsAction {
     _as: proto::RecordExistsAction,
 }
@@ -1370,7 +1370,7 @@ impl RecordExistsAction {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// QueryDuration represents the expected duration for a query operation in the Aerospike database.
-#[php_class(name = "Aerospike\\QueryDuration")]
+#[php_class(name = "AerospikeV8\\QueryDuration")]
 pub struct QueryDuration {
     _as: proto::QueryDuration,
 }
@@ -1449,7 +1449,7 @@ impl From<i32> for QueryDuration {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// CommitLevel indicates the desired consistency guarantee when committing a transaction on the server.
-#[php_class(name = "Aerospike\\CommitLevel")]
+#[php_class(name = "AerospikeV8\\CommitLevel")]
 pub struct CommitLevel {
     _as: proto::CommitLevel,
 }
@@ -1497,7 +1497,7 @@ pub enum _ConsistencyLevel {
     ConsistencyAll,
 }
 
-#[php_class(name = "Aerospike\\ConsistencyLevel")]
+#[php_class(name = "AerospikeV8\\ConsistencyLevel")]
 pub struct ConsistencyLevel {
     v: _ConsistencyLevel,
 }
@@ -1548,7 +1548,7 @@ impl From<&ConsistencyLevel> for proto::ConsistencyLevel {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// `GenerationPolicy` determines how to handle record writes based on record generation.
-#[php_class(name = "Aerospike\\GenerationPolicy")]
+#[php_class(name = "AerospikeV8\\GenerationPolicy")]
 pub struct GenerationPolicy {
     _as: proto::GenerationPolicy,
 }
@@ -1609,7 +1609,7 @@ pub enum _Expiration {
     DontUpdate,
 }
 
-#[php_class(name = "Aerospike\\Expiration")]
+#[php_class(name = "AerospikeV8\\Expiration")]
 pub struct Expiration {
     _as: _Expiration,
 }
@@ -1696,7 +1696,7 @@ pub enum _Concurrency {
     MaxThreads(u32),
 }
 
-#[php_class(name = "Aerospike\\Concurrency")]
+#[php_class(name = "AerospikeV8\\Concurrency")]
 pub struct Concurrency {
     v: _Concurrency,
 }
@@ -1767,7 +1767,7 @@ impl From<&Concurrency> for u32 {
 /// Specifies whether a command, that needs to be executed on multiple cluster nodes, should be
 /// executed sequentially, one node at a time, or in parallel on multiple nodes using the client's
 /// thread pool.
-#[php_class(name = "Aerospike\\ListOrderType")]
+#[php_class(name = "AerospikeV8\\ListOrderType")]
 #[derive(PartialEq)]
 pub struct ListOrderType {
     _as: proto::ListOrderType,
@@ -1817,7 +1817,7 @@ impl ListOrderType {
 /// Specifies whether a command, that needs to be executed on multiple cluster nodes, should be
 /// executed sequentially, one node at a time, or in parallel on multiple nodes using the client's
 /// thread pool.
-#[php_class(name = "Aerospike\\MapOrderType")]
+#[php_class(name = "AerospikeV8\\MapOrderType")]
 pub struct MapOrderType {
     _as: proto::MapOrderType,
 }
@@ -1893,7 +1893,7 @@ enum CDTContextType {
 /// for the current level.
 /// An array of CTX identifies location of the list/map on multiple
 /// levels on nesting.
-#[php_class(name = "Aerospike\\Context")]
+#[php_class(name = "AerospikeV8\\Context")]
 pub struct CDTContext {
     _as: proto::CdtContext,
 }
@@ -2040,7 +2040,7 @@ impl CDTContext {
 
 /// `ReadPolicy` encapsulates parameters for transaction policy attributes
 /// used in all database operation calls.
-#[php_class(name = "Aerospike\\ReadPolicy")]
+#[php_class(name = "AerospikeV8\\ReadPolicy")]
 pub struct ReadPolicy {
     _as: proto::ReadPolicy,
 }
@@ -2294,7 +2294,7 @@ impl Default for ReadPolicy {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// `AdminPolicy` encapsulates parameters for all admin operations.
-#[php_class(name = "Aerospike\\AdminPolicy")]
+#[php_class(name = "AerospikeV8\\AdminPolicy")]
 pub struct AdminPolicy {
     _as: proto::AdminPolicy,
 }
@@ -2334,7 +2334,7 @@ impl Default for AdminPolicy {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// `InfoPolicy` encapsulates parameters for all info operations.
-#[php_class(name = "Aerospike\\InfoPolicy")]
+#[php_class(name = "AerospikeV8\\InfoPolicy")]
 pub struct InfoPolicy {
     _as: proto::InfoPolicy,
 }
@@ -2362,7 +2362,7 @@ impl Default for InfoPolicy {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// `WritePolicy` encapsulates parameters for all write operations.
-#[php_class(name = "Aerospike\\WritePolicy")]
+#[php_class(name = "AerospikeV8\\WritePolicy")]
 pub struct WritePolicy {
     _as: proto::WritePolicy,
 }
@@ -2722,7 +2722,7 @@ impl Default for MultiPolicy {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// QueryPolicy encapsulates parameters for policy attributes used in query operations.
-#[php_class(name = "Aerospike\\QueryPolicy")]
+#[php_class(name = "AerospikeV8\\QueryPolicy")]
 pub struct QueryPolicy {
     _as: proto::QueryPolicy,
 }
@@ -3071,7 +3071,7 @@ impl Default for QueryPolicy {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// `ScanPolicy` encapsulates optional parameters used in scan operations.
-#[php_class(name = "Aerospike\\ScanPolicy")]
+#[php_class(name = "AerospikeV8\\ScanPolicy")]
 pub struct ScanPolicy {
     _as: proto::ScanPolicy,
 }
@@ -3405,7 +3405,7 @@ impl Default for ScanPolicy {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// IndexCollectionType is the secondary index collection type.
-#[php_class(name = "Aerospike\\IndexCollectionType")]
+#[php_class(name = "AerospikeV8\\IndexCollectionType")]
 pub struct IndexCollectionType {
     _as: proto::IndexCollectionType,
 }
@@ -3449,7 +3449,7 @@ impl IndexCollectionType {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Server particle types. Unsupported types are commented out.
-#[php_class(name = "Aerospike\\ParticleType")]
+#[php_class(name = "AerospikeV8\\ParticleType")]
 pub struct ParticleType {
     _as: proto::ParticleType,
 }
@@ -3550,7 +3550,7 @@ impl From<ParticleType> for i64 {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// IndexType the type of the secondary index.
-#[php_class(name = "Aerospike\\IndexType")]
+#[php_class(name = "AerospikeV8\\IndexType")]
 pub struct IndexType {
     _as: proto::IndexType,
 }
@@ -3596,7 +3596,7 @@ impl IndexType {
 /// Query filter definition. Currently, only one filter is allowed in a Statement, and must be on a
 /// bin which has a secondary index defined.
 /// Filter instances should be instantiated using one of the provided macros.
-#[php_class(name = "Aerospike\\Filter")]
+#[php_class(name = "AerospikeV8\\Filter")]
 pub struct Filter {
     _as: proto::QueryFilter,
 }
@@ -3796,7 +3796,7 @@ impl FromZval<'_> for Filter {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Statement encapsulates query statement parameters.
-#[php_class(name = "Aerospike\\Statement")]
+#[php_class(name = "AerospikeV8\\Statement")]
 pub struct Statement {
     _as: proto::Statement,
 }
@@ -3895,7 +3895,7 @@ impl Statement {
 /// multiple threads will retrieve records from the server nodes and put these records on an
 /// internal queue managed by the recordset. The single user thread consumes these records from the
 /// queue.
-#[php_class(name = "Aerospike\\PartitionStatus")]
+#[php_class(name = "AerospikeV8\\PartitionStatus")]
 pub struct PartitionStatus {
     _as: proto::PartitionStatus,
 }
@@ -3966,7 +3966,7 @@ impl FromZval<'_> for PartitionStatus {
 /// multiple threads will retrieve records from the server nodes and put these records on an
 /// internal queue managed by the recordset. The single user thread consumes these records from the
 /// queue.
-#[php_class(name = "Aerospike\\PartitionFilter")]
+#[php_class(name = "AerospikeV8\\PartitionFilter")]
 pub struct PartitionFilter {
     _as: Arc<Mutex<proto::PartitionFilter>>,
 }
@@ -4062,7 +4062,7 @@ impl FromZval<'_> for PartitionFilter {
 /// multiple threads will retrieve records from the server nodes and put these records on an
 /// internal queue managed by the recordset. The single user thread consumes these records from the
 /// queue.
-#[php_class(name = "Aerospike\\Recordset")]
+#[php_class(name = "AerospikeV8\\Recordset")]
 pub struct Recordset {
     _as: Option<tonic::Streaming<proto::AerospikeStreamResponse>>,
     client: Arc<Mutex<grpc::BlockingClient>>,
@@ -4153,7 +4153,7 @@ impl Recordset {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Container object for a record bin, comprising a name and a value.
-#[php_class(name = "Aerospike\\Bin")]
+#[php_class(name = "AerospikeV8\\Bin")]
 pub struct Bin {
     _as: proto::Bin,
 }
@@ -4177,7 +4177,7 @@ impl Bin {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Container object for a database record.
-#[php_class(name = "Aerospike\\Record")]
+#[php_class(name = "AerospikeV8\\Record")]
 pub struct Record {
     _as: proto::Record,
 }
@@ -4265,7 +4265,7 @@ impl FromZval<'_> for Record {
 
 /// BatchPolicy encapsulates parameters for policy attributes used in write operations.
 /// This object is passed into methods where database writes can occur.
-#[php_class(name = "Aerospike\\BatchPolicy")]
+#[php_class(name = "AerospikeV8\\BatchPolicy")]
 #[derive(Debug)]
 pub struct BatchPolicy {
     _as: proto::BatchPolicy,
@@ -4523,7 +4523,7 @@ impl Default for BatchPolicy {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BatchReadPolicy attributes used in batch read commands.
-#[php_class(name = "Aerospike\\BatchReadPolicy")]
+#[php_class(name = "AerospikeV8\\BatchReadPolicy")]
 pub struct BatchReadPolicy {
     _as: proto::BatchReadPolicy,
 }
@@ -4637,7 +4637,7 @@ impl Default for BatchReadPolicy {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BatchWritePolicy attributes used in batch write commands.
-#[php_class(name = "Aerospike\\BatchWritePolicy")]
+#[php_class(name = "AerospikeV8\\BatchWritePolicy")]
 pub struct BatchWritePolicy {
     _as: proto::BatchWritePolicy,
 }
@@ -4814,7 +4814,7 @@ impl Default for BatchWritePolicy {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BatchDeletePolicy is used in batch delete commands.
-#[php_class(name = "Aerospike\\BatchDeletePolicy")]
+#[php_class(name = "AerospikeV8\\BatchDeletePolicy")]
 pub struct BatchDeletePolicy {
     _as: proto::BatchDeletePolicy,
 }
@@ -4929,7 +4929,7 @@ impl Default for BatchDeletePolicy {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BatchUDFPolicy attributes used in batch UDF execute commands.
-#[php_class(name = "Aerospike\\BatchUdfPolicy")]
+#[php_class(name = "AerospikeV8\\BatchUdfPolicy")]
 pub struct BatchUdfPolicy {
     _as: proto::BatchUdfPolicy,
 }
@@ -5052,7 +5052,7 @@ impl Default for BatchUdfPolicy {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 /// OperationType determines operation type
-#[php_class(name = "Aerospike\\Operation")]
+#[php_class(name = "AerospikeV8\\Operation")]
 pub struct Operation {
     _as: proto::operation::Op,
 }
@@ -5157,7 +5157,7 @@ impl Operation {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BatchRecord encasulates the Batch key and record result.
-#[php_class(name = "Aerospike\\BatchRecord")]
+#[php_class(name = "AerospikeV8\\BatchRecord")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct BatchRecord {
     _as: proto::BatchRecord,
@@ -5191,7 +5191,7 @@ impl BatchRecord {
 
 /// BatchRead specifies the Key and bin names used in batch read commands
 /// where variable bins are needed for each key.
-#[php_class(name = "Aerospike\\BatchRead")]
+#[php_class(name = "AerospikeV8\\BatchRead")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct BatchRead {
     _as: proto::BatchRead,
@@ -5271,7 +5271,7 @@ impl BatchRead {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BatchWrite encapsulates a batch key and read/write operations with write policy.
-#[php_class(name = "Aerospike\\BatchWrite")]
+#[php_class(name = "AerospikeV8\\BatchWrite")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct BatchWrite {
     _as: proto::BatchWrite,
@@ -5307,7 +5307,7 @@ impl BatchWrite {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BatchDelete encapsulates a batch delete operation.
-#[php_class(name = "Aerospike\\BatchDelete")]
+#[php_class(name = "AerospikeV8\\BatchDelete")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct BatchDelete {
     _as: proto::BatchDelete,
@@ -5337,7 +5337,7 @@ impl BatchDelete {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BatchUDF encapsulates a batch user defined function operation.
-#[php_class(name = "Aerospike\\BatchUdf")]
+#[php_class(name = "AerospikeV8\\BatchUdf")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct BatchUdf {
     _as: proto::BatchUdf,
@@ -5376,7 +5376,7 @@ impl BatchUdf {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// `UdfLanguage` determines how to handle record writes based on record generation.
-#[php_class(name = "Aerospike\\UdfLanguage")]
+#[php_class(name = "AerospikeV8\\UdfLanguage")]
 pub struct UdfLanguage {
     _as: proto::UdfLanguage,
 }
@@ -5432,7 +5432,7 @@ impl From<UdfLanguage> for i32 {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Represents UDF (User-Defined Function) metadata for Aerospike.
-#[php_class(name = "Aerospike\\UdfMeta")]
+#[php_class(name = "AerospikeV8\\UdfMeta")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct UdfMeta {
     _as: proto::UdfMeta,
@@ -5473,7 +5473,7 @@ impl From<&proto::UserRole> for UserRole {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// UserRoles contains information about a user.
-#[php_class(name = "Aerospike\\UserRole")]
+#[php_class(name = "AerospikeV8\\UserRole")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct UserRole {
     _as: proto::UserRole,
@@ -5536,7 +5536,7 @@ impl UserRole {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Role allows granular access to database entities for users.
-#[php_class(name = "Aerospike\\Role")]
+#[php_class(name = "AerospikeV8\\Role")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct Role {
     _as: proto::Role,
@@ -5599,7 +5599,7 @@ impl FromZval<'_> for Role {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Privilege determines user access granularity.
-#[php_class(name = "Aerospike\\Privilege")]
+#[php_class(name = "AerospikeV8\\Privilege")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct Privilege {
     _as: proto::Privilege,
@@ -5697,7 +5697,7 @@ impl FromZval<'_> for Privilege {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// ListReturnType determines the returned values in CDT List operations.
-#[php_class(name = "Aerospike\\ListReturnType")]
+#[php_class(name = "AerospikeV8\\ListReturnType")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtListReturnType {
     /// _as: proto::CdtListReturnType,
@@ -5813,7 +5813,7 @@ impl FromZval<'_> for CdtListReturnType {
 
 /// ListWriteFlags detemines write flags for CDT lists
 /// type ListWriteFlags int
-#[php_class(name = "Aerospike\\ListWriteFlags")]
+#[php_class(name = "AerospikeV8\\ListWriteFlags")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtListWriteFlags {
     _as: proto::CdtListWriteFlags,
@@ -5887,7 +5887,7 @@ impl FromZval<'_> for CdtListWriteFlags {
 // TODO: Add method comments
 
 /// ListOrderType determines the order of returned values in CDT list operations.
-#[php_class(name = "Aerospike\\ListSortFlags")]
+#[php_class(name = "AerospikeV8\\ListSortFlags")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtListSortFlags {
     _as: proto::CdtListSortFlags,
@@ -5941,7 +5941,7 @@ impl FromZval<'_> for CdtListSortFlags {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// ListPolicy directives when creating a list and writing list items.
-#[php_class(name = "Aerospike\\ListPolicy")]
+#[php_class(name = "AerospikeV8\\ListPolicy")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtListPolicy {
     _as: proto::CdtListPolicy,
@@ -6008,7 +6008,7 @@ impl FromZval<'_> for CdtListPolicy {
 ///    Index -3 Count 3: Last three items in list.
 ///    Index -5 Count 4: Range between fifth to last item to second to last item inclusive.
 ///
-#[php_class(name = "Aerospike\\ListOp")]
+#[php_class(name = "AerospikeV8\\ListOp")]
 pub struct CdtListOperation {
     _as: proto::CdtListOperation,
 }
@@ -6946,7 +6946,7 @@ impl CdtListOperation {
 
 /// MapReturnType defines the map return type.
 /// Type of data to return when selecting or removing items from the map.
-#[php_class(name = "Aerospike\\MapReturnType")]
+#[php_class(name = "AerospikeV8\\MapReturnType")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtMapReturnType {
     /// _as: proto::CdtMapReturnType,
@@ -7094,7 +7094,7 @@ impl FromZval<'_> for CdtMapReturnType {
 
 /// MapWriteMode should only be used for server versions < 4.3.
 /// MapWriteFlags are recommended for server versions >= 4.3.
-#[php_class(name = "Aerospike\\MapWriteMode")]
+#[php_class(name = "AerospikeV8\\MapWriteMode")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtMapWriteMode {
     _as: proto::CdtMapWriteMode,
@@ -7152,7 +7152,7 @@ impl FromZval<'_> for CdtMapWriteMode {
 
 /// Map write bit flags.
 /// Requires server versions >= 4.3.
-#[php_class(name = "Aerospike\\MapWriteFlags")]
+#[php_class(name = "AerospikeV8\\MapWriteFlags")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtMapWriteFlags {
     _as: proto::CdtMapWriteFlags,
@@ -7223,7 +7223,7 @@ impl FromZval<'_> for CdtMapWriteFlags {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// MapPolicy directives when creating a map and writing map items.
-#[php_class(name = "Aerospike\\MapPolicy")]
+#[php_class(name = "AerospikeV8\\MapPolicy")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtMapPolicy {
     _as: proto::CdtMapPolicy,
@@ -7330,7 +7330,7 @@ impl Default for CdtMapPolicy {
 ///  MapPutOp(DefaultMapPolicy(), "bin", StringValue("key121"), IntegerValue(11), CtxMapKey(StringValue("key1")), CtxMapRank(-1))
 ///  bin result = {key1:{key11:{key111:1},key12:{key121:11}}, key2:{key21:{"key211":7}}}
 
-#[php_class(name = "Aerospike\\MapOp")]
+#[php_class(name = "AerospikeV8\\MapOp")]
 pub struct CdtMapOperation {
     _as: proto::CdtMapOperation,
 }
@@ -8369,7 +8369,7 @@ impl CdtMapOperation {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// HLLWriteFlags specifies the HLL write operation flags.
-#[php_class(name = "Aerospike\\HllWriteFlags")]
+#[php_class(name = "AerospikeV8\\HllWriteFlags")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtHllWriteFlags {
     _as: proto::CdtHllWriteFlags,
@@ -8443,7 +8443,7 @@ impl FromZval<'_> for CdtHllWriteFlags {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// HLLPolicy determines the HyperLogLog operation policy.
-#[php_class(name = "Aerospike\\HllPolicy")]
+#[php_class(name = "AerospikeV8\\HllPolicy")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtHllPolicy {
     _as: proto::CdtHllPolicy,
@@ -8490,7 +8490,7 @@ impl FromZval<'_> for CdtHllPolicy {
 ///
 /// HyperLogLog operations on HLL items nested in lists/maps are not currently
 /// supported by the server.
-#[php_class(name = "Aerospike\\HllOp")]
+#[php_class(name = "AerospikeV8\\HllOp")]
 pub struct CdtHllOperation {
     _as: proto::CdtHllOperation,
 }
@@ -8748,7 +8748,7 @@ impl CdtHllOperation {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BitWriteFlags specify bitwise operation policy write flags.
-#[php_class(name = "Aerospike\\BitwiseWriteFlags")]
+#[php_class(name = "AerospikeV8\\BitwiseWriteFlags")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtBitwiseWriteFlags {
     _as: proto::CdtBitwiseWriteFlags,
@@ -8821,7 +8821,7 @@ impl FromZval<'_> for CdtBitwiseWriteFlags {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BitResizeFlags specifies the bitwise operation flags for resize.
-#[php_class(name = "Aerospike\\BitwiseResizeFlags")]
+#[php_class(name = "AerospikeV8\\BitwiseResizeFlags")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtBitwiseResizeFlags {
     _as: proto::CdtBitwiseResizeFlags,
@@ -8882,7 +8882,7 @@ impl FromZval<'_> for CdtBitwiseResizeFlags {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BitOverflowAction specifies the action to take when bitwise add/subtract results in overflow/underflow.
-#[php_class(name = "Aerospike\\BitwiseOverflowAction")]
+#[php_class(name = "AerospikeV8\\BitwiseOverflowAction")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtBitwiseOverflowAction {
     _as: proto::CdtBitwiseOverflowAction,
@@ -8938,7 +8938,7 @@ impl FromZval<'_> for CdtBitwiseOverflowAction {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// BitPolicy determines the Bit operation policy.
-#[php_class(name = "Aerospike\\BitwisePolicy")]
+#[php_class(name = "AerospikeV8\\BitwisePolicy")]
 #[derive(Debug, PartialEq, Clone)]
 pub struct CdtBitwisePolicy {
     _as: proto::CdtBitwisePolicy,
@@ -8989,7 +8989,7 @@ impl FromZval<'_> for CdtBitwisePolicy {
 ///	Resize first bitmap (in a list of bitmaps) to 3 bytes.
 ///	BitOperation.resize("bin", 3, BitResizeFlags.DEFAULT, CTX.listIndex(0))
 ///	bin result = [[0b00000001, 0b01000010, 0b00000000],[0b01011010]]
-#[php_class(name = "Aerospike\\BitwiseOp")]
+#[php_class(name = "AerospikeV8\\BitwiseOp")]
 pub struct CdtBitwiseOperation {
     _as: proto::CdtBitwiseOperation,
 }
@@ -9654,7 +9654,7 @@ fn new_aerospike_client(socket: &str) -> PhpResult<grpc::BlockingClient> {
     Ok(client)
 }
 
-#[php_class(name = "Aerospike\\Client")]
+#[php_class(name = "AerospikeV8\\Client")]
 pub struct Client {
     client: Arc<Mutex<grpc::BlockingClient>>,
     socket: String,
@@ -10703,7 +10703,7 @@ impl Client {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Represents an exception specific to the Aerospike database operations.
-#[php_class(name = "Aerospike\\AerospikeException")]
+#[php_class(name = "AerospikeV8\\AerospikeException")]
 #[extends(ext_php_rs::zend::ce::exception())]
 #[derive(Debug, Clone)]
 pub struct AerospikeException {
@@ -10761,7 +10761,7 @@ impl From<AerospikeException> for PhpException {
 /// an optional set name, and a user defined key which must be unique within a set.
 /// Records can also be identified by namespace/digest which is the combination used
 /// on the server.
-#[php_class(name = "Aerospike\\Key")]
+#[php_class(name = "AerospikeV8\\Key")]
 pub struct Key {
     _as: proto::Key,
 }
@@ -10860,7 +10860,7 @@ impl FromZval<'_> for Key {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Implementation of the GeoJson Value for Aerospike.
-#[php_class(name = "Aerospike\\GeoJSON")]
+#[php_class(name = "AerospikeV8\\GeoJSON")]
 pub struct GeoJSON {
     v: String,
 }
@@ -10907,7 +10907,7 @@ impl fmt::Display for GeoJSON {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Implementation of the Json (Map<String, Value>) data structure for Aerospike.
-#[php_class(name = "Aerospike\\Json")]
+#[php_class(name = "AerospikeV8\\Json")]
 pub struct Json {
     v: HashMap<String, PHPValue>,
 }
@@ -10956,7 +10956,7 @@ impl fmt::Display for Json {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Represents a infinity value for Aerospike.
-#[php_class(name = "Aerospike\\Infinity")]
+#[php_class(name = "AerospikeV8\\Infinity")]
 pub struct Infinity {}
 
 impl FromZval<'_> for Infinity {
@@ -10976,7 +10976,7 @@ impl FromZval<'_> for Infinity {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Represents a wildcard value for Aerospike.
-#[php_class(name = "Aerospike\\Wildcard")]
+#[php_class(name = "AerospikeV8\\Wildcard")]
 pub struct Wildcard {}
 
 impl FromZval<'_> for Wildcard {
@@ -10996,7 +10996,7 @@ impl FromZval<'_> for Wildcard {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 /// Implementation of the HyperLogLog (HLL) data structure for Aerospike.
-#[php_class(name = "Aerospike\\HLL")]
+#[php_class(name = "AerospikeV8\\HLL")]
 pub struct HLL {
     v: Vec<u8>,
 }
@@ -11461,7 +11461,7 @@ impl From<proto::Value> for PHPValue {
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-#[php_class(name = "Aerospike\\Value")]
+#[php_class(name = "AerospikeV8\\Value")]
 pub struct Value;
 
 /// Value interface is used to efficiently serialize objects into the wire protocol.
@@ -11575,7 +11575,7 @@ impl std::fmt::Display for AeroPHPError {
 
 /// ResultCode signifies the database operation error codes.
 /// The positive numbers align with the server side file kvs.h.
-#[php_class(name = "Aerospike\\ResultCode")]
+#[php_class(name = "AerospikeV8\\ResultCode")]
 struct ResultCode {}
 
 #[php_impl]

@@ -1,12 +1,12 @@
 <?php
 
-use Aerospike\Client;
-use Aerospike\WritePolicy;
-use Aerospike\PartitionFilter;
-use Aerospike\ScanPolicy;
-use Aerospike\Bin;
-use Aerospike\InfoPolicy;
-use Aerospike\Key;
+use AerospikeV8\Client;
+use AerospikeV8\WritePolicy;
+use AerospikeV8\PartitionFilter;
+use AerospikeV8\ScanPolicy;
+use AerospikeV8\Bin;
+use AerospikeV8\InfoPolicy;
+use AerospikeV8\Key;
 
 use PHPUnit\Framework\TestCase;
 

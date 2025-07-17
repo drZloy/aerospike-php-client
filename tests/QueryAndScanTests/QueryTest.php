@@ -1,17 +1,17 @@
 <?php
 
-use Aerospike\Client;
-use Aerospike\WritePolicy;
-use Aerospike\PartitionFilter;
-use Aerospike\QueryPolicy;
-use Aerospike\Bin;
-use Aerospike\InfoPolicy;
-use Aerospike\Key;
-use Aerospike\IndexType;
-use Aerospike\Filter;
-use Aerospike\Statement;
-use Aerospike\AerospikeException;
-use Aerospike\QueryDuration;
+use AerospikeV8\Client;
+use AerospikeV8\WritePolicy;
+use AerospikeV8\PartitionFilter;
+use AerospikeV8\QueryPolicy;
+use AerospikeV8\Bin;
+use AerospikeV8\InfoPolicy;
+use AerospikeV8\Key;
+use AerospikeV8\IndexType;
+use AerospikeV8\Filter;
+use AerospikeV8\Statement;
+use AerospikeV8\AerospikeException;
+use AerospikeV8\QueryDuration;
 
 use PHPUnit\Framework\TestCase;
 

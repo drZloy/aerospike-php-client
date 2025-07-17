@@ -1,6 +1,6 @@
 <?php
 
-namespace Aerospike;
+namespace AerospikeV8;
 
 use PHPUnit\Framework\TestCase;
 
